@@ -1,0 +1,24 @@
+=== Initial System State ===
+Date: Tue Sep 30 12:34:05 CDT 2025
+Uptime: 12:34  up 14 days, 19:24, 1 user, load averages: 2.85 3.29 3.58
+Memory: Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                4264.
+Pages active:                             84124.
+Pages inactive:                           81474.
+Pages speculative:                         2306.
+Disk: Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   228Gi    12Gi   5.7Gi    68%    447k   60M    1%   /
+devfs            208Ki   208Ki     0Bi   100%     718     0  100%   /dev
+/dev/disk3s6     228Gi    12Gi   5.7Gi    68%      12   60M    0%   /System/Volumes/VM
+/dev/disk3s2     228Gi    14Gi   5.7Gi    72%    1.8k   60M    0%   /System/Volumes/Preboot
+/dev/disk3s4     228Gi   739Mi   5.7Gi    12%     463   60M    0%   /System/Volumes/Update
+/dev/disk2s2     500Mi   6.0Mi   481Mi     2%       1  4.9M    0%   /System/Volumes/xarts
+/dev/disk2s1     500Mi   5.8Mi   481Mi     2%      34  4.9M    0%   /System/Volumes/iSCPreboot
+/dev/disk2s3     500Mi   2.7Mi   481Mi     1%      57  4.9M    0%   /System/Volumes/Hardware
+/dev/disk3s5     228Gi   181Gi   5.7Gi    97%    2.7M   60M    4%   /System/Volumes/Data
+map auto_home      0Bi     0Bi     0Bi   100%       0     0     -   /System/Volumes/Data/home
+/dev/disk1s1     5.0Gi   2.0Gi   3.0Gi    40%      59   32M    0%   /System/Volumes/Update/SFR/mnt1
+/dev/disk3s1     228Gi    12Gi   5.7Gi    68%    447k   60M    1%   /System/Volumes/Update/mnt1
+CPU Info: Apple M1
+Load Average:  2.85 3.29 3.58
+

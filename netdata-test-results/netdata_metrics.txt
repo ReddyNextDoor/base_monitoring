@@ -1,0 +1,1813 @@
+=== Netdata Metrics Collection ===
+Collection Time: Tue Sep 30 12:36:05 CDT 2025
+
+System Info:
+{
+    "version": "v2.7.0-17-nightly",
+    "uid": "007d0e60-4b94-400a-aec0-c98594154892",
+    "hosts-available": 1,
+    "mirrored_hosts": [
+        "netdata-server"
+    ],
+    "mirrored_hosts_status": [
+        {
+            "hostname": "netdata-server",
+            "hops": 0,
+            "reachable": true,
+            "guid": "007d0e60-4b94-400a-aec0-c98594154892",
+            "node_id": null,
+            "claim_id": null
+        }
+    ],
+    "alarms": {
+        "normal": 359,
+        "warning": 1,
+        "critical": 0
+    },
+    "os_name": "unknown",
+    "os_id": "unknown",
+    "os_id_like": "unknown",
+    "os_version": "unknown",
+    "os_version_id": "unknown",
+    "os_detection": "/host/etc/os-release",
+    "cores_total": "2",
+    "total_disk_space": "9174073344",
+    "cpu_freq": "unknown",
+    "ram_total": "2069843968",
+    "container_os_name": "Debian GNU/Linux",
+    "container_os_id": "debian",
+    "container_os_id_like": "unknown",
+    "container_os_version": "13 (trixie)",
+    "container_os_version_id": "13",
+    "container_os_detection": "/etc/os-release",
+    "is_k8s_node": "false",
+    "kernel_name": "Linux",
+    "kernel_version": "6.10.14-linuxkit",
+    "architecture": "aarch64",
+    "virtualization": "unknown",
+    "virt_detection": "none",
+    "container": "docker",
+    "container_detection": "dockerenv",
+    "cloud_provider_type": "unknown",
+    "cloud_instance_type": "unknown",
+    "cloud_instance_region": "unknown",
+    "host_labels": {
+        "_os_version": "unknown",
+        "_os_name": "unknown",
+        "_kernel_version": "6.10.14-linuxkit",
+        "_cloud_instance_region": "unknown",
+        "_architecture": "aarch64",
+        "_virtualization": "unknown",
+        "_net_default_iface": "eth0",
+        "_container_detection": "dockerenv",
+        "_virt_detection": "none",
+        "_system_disk_space": "9174073344",
+        "_system_cores": "2",
+        "_mqtt_version": "5",
+        "_aclk_proxy": "none",
+        "_aclk_ng_new_cloud_protocol": "true",
+        "_is_ephemeral": "false",
+        "_install_type": "oci",
+        "_prebuilt_arch": "aarch64",
+        "_system_cpu_freq": "unknown",
+        "_is_k8s_node": "false",
+        "_net_default_iface_ip": "172.18.0.2",
+        "_net_default_iface_detection": "procfs",
+        "_aclk_available": "true",
+        "_cloud_instance_type": "unknown",
+        "_cloud_provider_type": "unknown",
+        "_container": "docker",
+        "_system_ram_total": "2069843968",
+        "_system_cpu_model": "-",
+        "_has_unstable_connection": "false",
+        "_is_parent": "false",
+        "_hostname": "netdata-server",
+        "_os": "linux",
+        "_timezone": "Etc/UTC",
+        "_abbrev_timezone": "UTC"
+    },
+    "functions": {
+        "netdata-streaming": {
+            "help": "Shows real-time streaming connections and replication status between parent and child nodes, including connection health, data flow metrics, and ML status.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "signed-in",
+                "same-space",
+                "sensitive-data"
+            ],
+            "priority": 101
+        },
+        "netdata-api-calls": {
+            "help": "Monitors active and recent Netdata API requests with transaction details, duration, and response sizes.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "signed-in",
+                "same-space",
+                "sensitive-data"
+            ],
+            "priority": 101
+        },
+        "netdata-metrics-cardinality": {
+            "help": "Displays metrics cardinality statistics showing distribution of instances and time-series across contexts and nodes. To change grouping, append parameter to function name: 'netdata-metrics-cardinality' (default, group by context) or 'netdata-metrics-cardinality group:by-node' (group by node).",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "anonymous-data"
+            ],
+            "priority": 101
+        },
+        "mount-points": {
+            "help": "Displays filesystem mount points with space utilization, available capacity, and inode usage statistics.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "anonymous-data"
+            ],
+            "priority": 100
+        },
+        "network-interfaces": {
+            "help": "Shows real-time network interface performance including traffic rates, packet counts, drops, and link status.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "anonymous-data"
+            ],
+            "priority": 100
+        },
+        "containers-vms": {
+            "help": "Lists active containers and cgroups with resource usage including CPU, memory, disk I/O, and network traffic.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "anonymous-data"
+            ],
+            "priority": 50
+        },
+        "systemd-services": {
+            "help": "Shows systemd service cgroups with their process counts and resource consumption (CPU, memory, I/O).",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "anonymous-data"
+            ],
+            "priority": 33
+        },
+        "systemd-list-units": {
+            "help": "View the status of systemd units",
+            "timeout": 30,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "signed-in",
+                "same-space",
+                "sensitive-data"
+            ],
+            "priority": 100
+        },
+        "processes": {
+            "help": "Provides detailed process information including CPU usage, memory consumption, I/O statistics, file descriptors, page faults, and parent-child relationships (PPID) for all processes including those in containers.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "signed-in",
+                "same-space",
+                "sensitive-data"
+            ],
+            "priority": 10
+        },
+        "block-devices": {
+            "help": "Displays block device I/O statistics including read/write throughput, operations, latency, and utilization.",
+            "timeout": 10,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "anonymous-data"
+            ],
+            "priority": 100
+        },
+        "network-connections": {
+            "help": "Shows active network connections with protocol details, states, addresses, ports, and performance metrics.",
+            "timeout": 60,
+            "version": 0,
+            "options": [
+                "GLOBAL"
+            ],
+            "tags": "top",
+            "access": [
+                "signed-in",
+                "same-space",
+                "sensitive-data"
+            ],
+            "priority": 100
+        }
+    },
+    "collectors": [
+        {
+            "plugin": "idlejitter.plugin",
+            "module": ""
+        },
+        {
+            "plugin": "statsd.plugin",
+            "module": "stats"
+        },
+        {
+            "plugin": "netdata",
+            "module": "pulse"
+        },
+        {
+            "plugin": "netdata",
+            "module": "stats"
+        },
+        {
+            "plugin": "apps.plugin",
+            "module": ""
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/dev"
+        },
+        {
+            "plugin": "ml.plugin",
+            "module": "training"
+        },
+        {
+            "plugin": "ml.plugin",
+            "module": "detection"
+        },
+        {
+            "plugin": "diskspace.plugin",
+            "module": ""
+        },
+        {
+            "plugin": "debugfs.plugin",
+            "module": "/sys/kernel/debug/extfrag"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/stat"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/uptime"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/loadavg"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/sys/fs/file-nr"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/sys/kernel/random/entropy_avail"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/pressure"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/interrupts"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/softirqs"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/vmstat"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/meminfo"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/sockstat"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/sockstat6"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/netstat"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/sctp/snmp"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/softnet_stat"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/ip_vs_stats"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/stat/nf_conntrack"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/stat/synproxy"
+        },
+        {
+            "plugin": "proc",
+            "module": "/proc/diskstats"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/diskstats"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "/proc/net/rpc/nfsd"
+        },
+        {
+            "plugin": "proc.plugin",
+            "module": "ipc"
+        },
+        {
+            "plugin": "go.d",
+            "module": "docker"
+        },
+        {
+            "plugin": "timex.plugin",
+            "module": ""
+        },
+        {
+            "plugin": "cgroups.plugin",
+            "module": "/sys/fs/cgroup"
+        }
+    ],
+    "cloud-enabled": true,
+    "cloud-available": true,
+    "agent-claimed": false,
+    "aclk-available": false,
+    "memory-mode": "dbengine",
+    "multidb-disk-quota": 1024,
+    "page-cache-size": 32,
+    "web-enabled": true,
+    "stream-enabled": false,
+    "stream-compression": false,
+    "https-enabled": true,
+    "buildinfo": "Netdata Cloud|Stream Compression|Machine Learning|allocator|dbengine|Native HTTPS|TLS Host Verification|zlib|protobuf|JSON-C|libcap|libcrypto|libyaml|libmnl|apps|cgroup Network Tracking|debugfs|IPMI|NETWORK-VIEWER|SYSTEMD-JOURNAL|perf|slabinfo|MongoDB|Prometheus Remote Write",
+    "release-channel": "nightly",
+    "notification-methods": "SEND_EMAIL",
+    "exporting-enabled": false,
+    "exporting-connectors": "",
+    "allmetrics-prometheus-used": 255,
+    "allmetrics-shell-used": 0,
+    "allmetrics-json-used": 0,
+    "dashboard-used": 1,
+    "charts-count": 1307,
+    "metrics-count": 3100,
+    "ml-info": {
+        "version": 1,
+        "enabled": true,
+        "min-train-samples": 900,
+        "max-train-samples": 21600,
+        "train-every": 10800,
+        "diff-n": 1,
+        "smooth-n": 3,
+        "lag-n": 5,
+        "random-sampling-ratio": 0.2,
+        "max-kmeans-iters": 0,
+        "dimension-anomaly-score-threshold": 0.99,
+        "anomaly-detection-grouping-method": "average",
+        "anomaly-detection-query-duration": 300,
+        "hosts-to-skip": "!*",
+        "charts-to-skip": "anomaly_detection.* netdata.*"
+    }
+}
+
+Active Alarms:
+{
+    "hostname": "netdata-server",
+    "latest_alarm_log_unique_id": 1759252473,
+    "status": true,
+    "now": 1759253765,
+    "alarms": {
+        "system.clock_sync_state.system_clock_sync_state": {
+            "id": 1759251938,
+            "config_hash_id": "ce46dc40-b969-4c02-a4e2-7c4c960813b6",
+            "name": "system_clock_sync_state",
+            "chart": "system.clock_sync_state",
+            "class": "Errors",
+            "component": "Clock",
+            "type": "System",
+            "active": true,
+            "disabled": false,
+            "silenced": false,
+            "exec": "/usr/libexec/netdata/plugins.d/alarm-notify.sh",
+            "recipient": "silent",
+            "source": "line=4,file=/usr/lib/netdata/conf.d/health.d/timex.conf",
+            "units": "synchronization state",
+            "summary": "System clock sync state",
+            "info": "When set to 0, the system kernel believes the system clock is not properly synchronized to a reliable server",
+            "status": "WARNING",
+            "last_status_change": 1759251764,
+            "last_updated": 1759253765,
+            "next_update": 1759253775,
+            "update_every": 10,
+            "delay_up_duration": 0,
+            "delay_down_duration": 300,
+            "delay_max_duration": 300,
+            "delay_multiplier": 1.0,
+            "delay": 0,
+            "delay_up_to_timestamp": 1759251764,
+            "warn_repeat_every": "0",
+            "crit_repeat_every": "0",
+            "value_string": "0 synchronization state",
+            "last_repeat": "0",
+            "times_repeat": 0,
+            "calc": "$state",
+            "calc_parsed": "${state}",
+            "warn": "$system.uptime.uptime &gt; 17 * 60 AND $this == 0",
+            "warn_parsed": "((${system.uptime.uptime} &gt; (17 * 60)) &amp;&amp; (${this} == 0))",
+            "green": null,
+            "red": null,
+            "value": 0
+        }
+    }
+}
+
+Available Charts:
+system.idlejitter: CPU Idle Jitter (system.idlejitter)
+netdata.statsd_metrics: Metrics in the netdata statsd database (netdata.statsd_metrics)
+netdata.statsd_useful_metrics: Useful metrics in the netdata statsd database (netdata.statsd_useful_metrics)
+netdata.statsd_events: Events processed by the netdata statsd server (netdata.statsd_events)
+netdata.statsd_reads: Read operations made by the netdata statsd server (netdata.statsd_reads)
+netdata.statsd_bytes: Bytes read by the netdata statsd server (netdata.statsd_bytes)
+netdata.statsd_packets: Network packets processed by the netdata statsd server (netdata.statsd_packets)
+netdata.tcp_connects: statsd server TCP connects and disconnects (netdata.tcp_connects)
+netdata.tcp_connected: statsd server TCP connected sockets (netdata.tcp_connected)
+netdata.private_charts: Private metric charts created by the netdata statsd server (netdata.private_charts)
+netdata.db_samples_collected: Netdata Time-Series Collected Samples (netdata.db_samples_collected)
+netdata.clients: Netdata Web API Clients (netdata.clients)
+netdata.requests: Netdata Web API Requests Received (netdata.requests)
+netdata.response_time: Netdata Web API Response Time (netdata.response_time)
+netdata.queries: Netdata Time-Series DB Queries (netdata.queries)
+netdata.db_samples_read: Netdata Time-Series DB Samples Read (netdata.db_samples_read)
+netdata.dbengine_retention_tier0: dbengine space and time retention (netdata.dbengine_retention_tier0)
+netdata.dbengine_retention_tier1: dbengine space and time retention (netdata.dbengine_retention_tier1)
+netdata.dbengine_retention_tier2: dbengine space and time retention (netdata.dbengine_retention_tier2)
+netdata.server_cpu: Netdata CPU usage (netdata.server_cpu)
+netdata.uptime: Netdata uptime (netdata.uptime)
+netdata.memory: Netdata Memory (netdata.memory)
+netdata.memory_buffers: Netdata Memory Buffers (netdata.memory_buffers)
+netdata.out_of_memory_protection: Out of Memory Protection (netdata.out_of_memory_protection)
+netdata.apps_cpu: Apps Plugin CPU (netdata.apps_cpu)
+netdata.apps_sizes: Apps Plugin Files (netdata.apps_sizes)
+system.processes_state: System Processes State (system.processes_state)
+app.go_d_plugin_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.go_d_plugin_cpu_utilization)
+app.go_d_plugin_mem_private_usage: Applications Groups memory usage without shared (app.go_d_plugin_mem_private_usage)
+app.go_d_plugin_cpu_context_switches: Applications Groups CPU context switches (app.go_d_plugin_cpu_context_switches)
+app.go_d_plugin_mem_usage: Applications Groups memory RSS usage (app.go_d_plugin_mem_usage)
+app.go_d_plugin_vmem_usage: Applications Groups virtual memory size (app.go_d_plugin_vmem_usage)
+app.go_d_plugin_mem_page_faults: Applications Groups memory page faults (app.go_d_plugin_mem_page_faults)
+app.go_d_plugin_swap_usage: Applications Groups swap usage (app.go_d_plugin_swap_usage)
+app.go_d_plugin_disk_physical_io: Applications Groups disk physical IO (app.go_d_plugin_disk_physical_io)
+app.go_d_plugin_disk_logical_io: Applications Groups disk logical IO (app.go_d_plugin_disk_logical_io)
+app.go_d_plugin_processes: Applications Groups processes (app.go_d_plugin_processes)
+app.go_d_plugin_threads: Applications Groups threads (app.go_d_plugin_threads)
+app.go_d_plugin_fds_open_limit: Applications Groups open file descriptors limit (app.go_d_plugin_fds_open_limit)
+app.go_d_plugin_fds_open: Applications Groups open files descriptors (app.go_d_plugin_fds_open)
+app.go_d_plugin_uptime: Applications Groups uptime (app.go_d_plugin_uptime)
+app.python_d_plugin_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.python_d_plugin_cpu_utilization)
+app.python_d_plugin_mem_private_usage: Applications Groups memory usage without shared (app.python_d_plugin_mem_private_usage)
+app.python_d_plugin_cpu_context_switches: Applications Groups CPU context switches (app.python_d_plugin_cpu_context_switches)
+app.python_d_plugin_mem_usage: Applications Groups memory RSS usage (app.python_d_plugin_mem_usage)
+app.python_d_plugin_vmem_usage: Applications Groups virtual memory size (app.python_d_plugin_vmem_usage)
+app.python_d_plugin_mem_page_faults: Applications Groups memory page faults (app.python_d_plugin_mem_page_faults)
+app.python_d_plugin_swap_usage: Applications Groups swap usage (app.python_d_plugin_swap_usage)
+app.python_d_plugin_disk_physical_io: Applications Groups disk physical IO (app.python_d_plugin_disk_physical_io)
+app.python_d_plugin_disk_logical_io: Applications Groups disk logical IO (app.python_d_plugin_disk_logical_io)
+app.python_d_plugin_processes: Applications Groups processes (app.python_d_plugin_processes)
+app.python_d_plugin_threads: Applications Groups threads (app.python_d_plugin_threads)
+app.python_d_plugin_fds_open_limit: Applications Groups open file descriptors limit (app.python_d_plugin_fds_open_limit)
+app.python_d_plugin_fds_open: Applications Groups open files descriptors (app.python_d_plugin_fds_open)
+app.python_d_plugin_uptime: Applications Groups uptime (app.python_d_plugin_uptime)
+app.apps_plugin_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.apps_plugin_cpu_utilization)
+app.apps_plugin_mem_private_usage: Applications Groups memory usage without shared (app.apps_plugin_mem_private_usage)
+app.apps_plugin_cpu_context_switches: Applications Groups CPU context switches (app.apps_plugin_cpu_context_switches)
+app.apps_plugin_mem_usage: Applications Groups memory RSS usage (app.apps_plugin_mem_usage)
+app.apps_plugin_vmem_usage: Applications Groups virtual memory size (app.apps_plugin_vmem_usage)
+app.apps_plugin_mem_page_faults: Applications Groups memory page faults (app.apps_plugin_mem_page_faults)
+app.apps_plugin_swap_usage: Applications Groups swap usage (app.apps_plugin_swap_usage)
+app.apps_plugin_disk_physical_io: Applications Groups disk physical IO (app.apps_plugin_disk_physical_io)
+app.apps_plugin_disk_logical_io: Applications Groups disk logical IO (app.apps_plugin_disk_logical_io)
+app.apps_plugin_processes: Applications Groups processes (app.apps_plugin_processes)
+app.apps_plugin_threads: Applications Groups threads (app.apps_plugin_threads)
+app.apps_plugin_fds_open_limit: Applications Groups open file descriptors limit (app.apps_plugin_fds_open_limit)
+app.apps_plugin_fds_open: Applications Groups open files descriptors (app.apps_plugin_fds_open)
+app.apps_plugin_uptime: Applications Groups uptime (app.apps_plugin_uptime)
+app.NETWORK-VIEWER_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.NETWORK-VIEWER_cpu_utilization)
+app.NETWORK-VIEWER_mem_private_usage: Applications Groups memory usage without shared (app.NETWORK-VIEWER_mem_private_usage)
+app.NETWORK-VIEWER_cpu_context_switches: Applications Groups CPU context switches (app.NETWORK-VIEWER_cpu_context_switches)
+app.NETWORK-VIEWER_mem_usage: Applications Groups memory RSS usage (app.NETWORK-VIEWER_mem_usage)
+app.NETWORK-VIEWER_vmem_usage: Applications Groups virtual memory size (app.NETWORK-VIEWER_vmem_usage)
+app.NETWORK-VIEWER_mem_page_faults: Applications Groups memory page faults (app.NETWORK-VIEWER_mem_page_faults)
+app.NETWORK-VIEWER_swap_usage: Applications Groups swap usage (app.NETWORK-VIEWER_swap_usage)
+app.NETWORK-VIEWER_disk_physical_io: Applications Groups disk physical IO (app.NETWORK-VIEWER_disk_physical_io)
+app.NETWORK-VIEWER_disk_logical_io: Applications Groups disk logical IO (app.NETWORK-VIEWER_disk_logical_io)
+app.NETWORK-VIEWER_processes: Applications Groups processes (app.NETWORK-VIEWER_processes)
+app.NETWORK-VIEWER_threads: Applications Groups threads (app.NETWORK-VIEWER_threads)
+app.NETWORK-VIEWER_fds_open_limit: Applications Groups open file descriptors limit (app.NETWORK-VIEWER_fds_open_limit)
+app.NETWORK-VIEWER_fds_open: Applications Groups open files descriptors (app.NETWORK-VIEWER_fds_open)
+app.NETWORK-VIEWER_uptime: Applications Groups uptime (app.NETWORK-VIEWER_uptime)
+app.sd-unit_plugin_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.sd-unit_plugin_cpu_utilization)
+app.sd-unit_plugin_mem_private_usage: Applications Groups memory usage without shared (app.sd-unit_plugin_mem_private_usage)
+app.sd-unit_plugin_cpu_context_switches: Applications Groups CPU context switches (app.sd-unit_plugin_cpu_context_switches)
+app.sd-unit_plugin_mem_usage: Applications Groups memory RSS usage (app.sd-unit_plugin_mem_usage)
+app.sd-unit_plugin_vmem_usage: Applications Groups virtual memory size (app.sd-unit_plugin_vmem_usage)
+app.sd-unit_plugin_mem_page_faults: Applications Groups memory page faults (app.sd-unit_plugin_mem_page_faults)
+app.sd-unit_plugin_swap_usage: Applications Groups swap usage (app.sd-unit_plugin_swap_usage)
+app.sd-unit_plugin_disk_physical_io: Applications Groups disk physical IO (app.sd-unit_plugin_disk_physical_io)
+app.sd-unit_plugin_disk_logical_io: Applications Groups disk logical IO (app.sd-unit_plugin_disk_logical_io)
+app.sd-unit_plugin_processes: Applications Groups processes (app.sd-unit_plugin_processes)
+app.sd-unit_plugin_threads: Applications Groups threads (app.sd-unit_plugin_threads)
+app.sd-unit_plugin_fds_open_limit: Applications Groups open file descriptors limit (app.sd-unit_plugin_fds_open_limit)
+app.sd-unit_plugin_fds_open: Applications Groups open files descriptors (app.sd-unit_plugin_fds_open)
+app.sd-unit_plugin_uptime: Applications Groups uptime (app.sd-unit_plugin_uptime)
+app.debugfs_plugin_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.debugfs_plugin_cpu_utilization)
+app.debugfs_plugin_mem_private_usage: Applications Groups memory usage without shared (app.debugfs_plugin_mem_private_usage)
+app.debugfs_plugin_cpu_context_switches: Applications Groups CPU context switches (app.debugfs_plugin_cpu_context_switches)
+app.debugfs_plugin_mem_usage: Applications Groups memory RSS usage (app.debugfs_plugin_mem_usage)
+app.debugfs_plugin_vmem_usage: Applications Groups virtual memory size (app.debugfs_plugin_vmem_usage)
+app.debugfs_plugin_mem_page_faults: Applications Groups memory page faults (app.debugfs_plugin_mem_page_faults)
+app.debugfs_plugin_swap_usage: Applications Groups swap usage (app.debugfs_plugin_swap_usage)
+app.debugfs_plugin_disk_physical_io: Applications Groups disk physical IO (app.debugfs_plugin_disk_physical_io)
+app.debugfs_plugin_disk_logical_io: Applications Groups disk logical IO (app.debugfs_plugin_disk_logical_io)
+app.debugfs_plugin_processes: Applications Groups processes (app.debugfs_plugin_processes)
+app.debugfs_plugin_threads: Applications Groups threads (app.debugfs_plugin_threads)
+app.debugfs_plugin_fds_open_limit: Applications Groups open file descriptors limit (app.debugfs_plugin_fds_open_limit)
+app.debugfs_plugin_fds_open: Applications Groups open files descriptors (app.debugfs_plugin_fds_open)
+app.debugfs_plugin_uptime: Applications Groups uptime (app.debugfs_plugin_uptime)
+app.tc-qos-helper_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.tc-qos-helper_cpu_utilization)
+app.tc-qos-helper_mem_private_usage: Applications Groups memory usage without shared (app.tc-qos-helper_mem_private_usage)
+app.tc-qos-helper_cpu_context_switches: Applications Groups CPU context switches (app.tc-qos-helper_cpu_context_switches)
+app.tc-qos-helper_mem_usage: Applications Groups memory RSS usage (app.tc-qos-helper_mem_usage)
+app.tc-qos-helper_vmem_usage: Applications Groups virtual memory size (app.tc-qos-helper_vmem_usage)
+app.tc-qos-helper_mem_page_faults: Applications Groups memory page faults (app.tc-qos-helper_mem_page_faults)
+app.tc-qos-helper_swap_usage: Applications Groups swap usage (app.tc-qos-helper_swap_usage)
+app.tc-qos-helper_disk_physical_io: Applications Groups disk physical IO (app.tc-qos-helper_disk_physical_io)
+app.tc-qos-helper_disk_logical_io: Applications Groups disk logical IO (app.tc-qos-helper_disk_logical_io)
+app.tc-qos-helper_processes: Applications Groups processes (app.tc-qos-helper_processes)
+app.tc-qos-helper_threads: Applications Groups threads (app.tc-qos-helper_threads)
+app.tc-qos-helper_fds_open_limit: Applications Groups open file descriptors limit (app.tc-qos-helper_fds_open_limit)
+app.tc-qos-helper_fds_open: Applications Groups open files descriptors (app.tc-qos-helper_fds_open)
+app.tc-qos-helper_uptime: Applications Groups uptime (app.tc-qos-helper_uptime)
+app.grafana_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.grafana_cpu_utilization)
+app.grafana_mem_private_usage: Applications Groups memory usage without shared (app.grafana_mem_private_usage)
+app.grafana_cpu_context_switches: Applications Groups CPU context switches (app.grafana_cpu_context_switches)
+app.grafana_mem_usage: Applications Groups memory RSS usage (app.grafana_mem_usage)
+app.grafana_vmem_usage: Applications Groups virtual memory size (app.grafana_vmem_usage)
+app.grafana_mem_page_faults: Applications Groups memory page faults (app.grafana_mem_page_faults)
+app.grafana_swap_usage: Applications Groups swap usage (app.grafana_swap_usage)
+app.grafana_disk_physical_io: Applications Groups disk physical IO (app.grafana_disk_physical_io)
+app.grafana_disk_logical_io: Applications Groups disk logical IO (app.grafana_disk_logical_io)
+app.grafana_processes: Applications Groups processes (app.grafana_processes)
+app.grafana_threads: Applications Groups threads (app.grafana_threads)
+app.grafana_fds_open_limit: Applications Groups open file descriptors limit (app.grafana_fds_open_limit)
+net.bond0: Bandwidth (net.bond0)
+net_operstate.bond0: Interface Operational State (net_operstate.bond0)
+net_mtu.bond0: Interface MTU (net_mtu.bond0)
+net_packets.bond0: Packets (net_packets.bond0)
+net_errors.bond0: Interface Errors (net_errors.bond0)
+net_drops.bond0: Interface Drops (net_drops.bond0)
+net_fifo.bond0: Interface FIFO Buffer Errors (net_fifo.bond0)
+net_events.bond0: Network Interface Events (net_events.bond0)
+net.eth0: Bandwidth (net.eth0)
+net_speed.eth0: Interface Speed (net_speed.eth0)
+net_duplex.eth0: Interface Duplex State (net_duplex.eth0)
+net_operstate.eth0: Interface Operational State (net_operstate.eth0)
+net_carrier.eth0: Interface Physical Link State (net_carrier.eth0)
+net_mtu.eth0: Interface MTU (net_mtu.eth0)
+net_packets.eth0: Packets (net_packets.eth0)
+net_errors.eth0: Interface Errors (net_errors.eth0)
+net_drops.eth0: Interface Drops (net_drops.eth0)
+net_fifo.eth0: Interface FIFO Buffer Errors (net_fifo.eth0)
+net_events.eth0: Network Interface Events (net_events.eth0)
+net.eth1: Bandwidth (net.eth1)
+app.grafana_fds_open: Applications Groups open files descriptors (app.grafana_fds_open)
+app.grafana_uptime: Applications Groups uptime (app.grafana_uptime)
+app.prometheus_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.prometheus_cpu_utilization)
+app.prometheus_mem_private_usage: Applications Groups memory usage without shared (app.prometheus_mem_private_usage)
+app.prometheus_cpu_context_switches: Applications Groups CPU context switches (app.prometheus_cpu_context_switches)
+app.prometheus_mem_usage: Applications Groups memory RSS usage (app.prometheus_mem_usage)
+app.prometheus_vmem_usage: Applications Groups virtual memory size (app.prometheus_vmem_usage)
+app.prometheus_mem_page_faults: Applications Groups memory page faults (app.prometheus_mem_page_faults)
+app.prometheus_swap_usage: Applications Groups swap usage (app.prometheus_swap_usage)
+app.prometheus_disk_physical_io: Applications Groups disk physical IO (app.prometheus_disk_physical_io)
+app.prometheus_disk_logical_io: Applications Groups disk logical IO (app.prometheus_disk_logical_io)
+app.prometheus_processes: Applications Groups processes (app.prometheus_processes)
+app.prometheus_threads: Applications Groups threads (app.prometheus_threads)
+app.prometheus_fds_open_limit: Applications Groups open file descriptors limit (app.prometheus_fds_open_limit)
+app.prometheus_fds_open: Applications Groups open files descriptors (app.prometheus_fds_open)
+app.prometheus_uptime: Applications Groups uptime (app.prometheus_uptime)
+app.containerd-shim-runc-v2_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.containerd-shim-runc-v2_cpu_utilization)
+app.containerd-shim-runc-v2_mem_private_usage: Applications Groups memory usage without shared (app.containerd-shim-runc-v2_mem_private_usage)
+app.containerd-shim-runc-v2_cpu_context_switches: Applications Groups CPU context switches (app.containerd-shim-runc-v2_cpu_context_switches)
+net_speed.eth1: Interface Speed (net_speed.eth1)
+net_duplex.eth1: Interface Duplex State (net_duplex.eth1)
+net_operstate.eth1: Interface Operational State (net_operstate.eth1)
+net_carrier.eth1: Interface Physical Link State (net_carrier.eth1)
+net_mtu.eth1: Interface MTU (net_mtu.eth1)
+net_packets.eth1: Packets (net_packets.eth1)
+net_errors.eth1: Interface Errors (net_errors.eth1)
+net_drops.eth1: Interface Drops (net_drops.eth1)
+net_fifo.eth1: Interface FIFO Buffer Errors (net_fifo.eth1)
+net_events.eth1: Network Interface Events (net_events.eth1)
+net.tunl0: Bandwidth (net.tunl0)
+net_operstate.tunl0: Interface Operational State (net_operstate.tunl0)
+net_mtu.tunl0: Interface MTU (net_mtu.tunl0)
+net_packets.tunl0: Packets (net_packets.tunl0)
+net_errors.tunl0: Interface Errors (net_errors.tunl0)
+net_drops.tunl0: Interface Drops (net_drops.tunl0)
+net_fifo.tunl0: Interface FIFO Buffer Errors (net_fifo.tunl0)
+net_events.tunl0: Network Interface Events (net_events.tunl0)
+net.gre0: Bandwidth (net.gre0)
+net_operstate.gre0: Interface Operational State (net_operstate.gre0)
+net_mtu.gre0: Interface MTU (net_mtu.gre0)
+net_packets.gre0: Packets (net_packets.gre0)
+net_errors.gre0: Interface Errors (net_errors.gre0)
+net_drops.gre0: Interface Drops (net_drops.gre0)
+net_fifo.gre0: Interface FIFO Buffer Errors (net_fifo.gre0)
+net_events.gre0: Network Interface Events (net_events.gre0)
+net.gretap0: Bandwidth (net.gretap0)
+net_operstate.gretap0: Interface Operational State (net_operstate.gretap0)
+net_mtu.gretap0: Interface MTU (net_mtu.gretap0)
+net_packets.gretap0: Packets (net_packets.gretap0)
+net_errors.gretap0: Interface Errors (net_errors.gretap0)
+net_drops.gretap0: Interface Drops (net_drops.gretap0)
+net_fifo.gretap0: Interface FIFO Buffer Errors (net_fifo.gretap0)
+net_events.gretap0: Network Interface Events (net_events.gretap0)
+app.containerd-shim-runc-v2_mem_usage: Applications Groups memory RSS usage (app.containerd-shim-runc-v2_mem_usage)
+net.docker0: Bandwidth (net.docker0)
+net_operstate.docker0: Interface Operational State (net_operstate.docker0)
+net_carrier.docker0: Interface Physical Link State (net_carrier.docker0)
+net_mtu.docker0: Interface MTU (net_mtu.docker0)
+net_packets.docker0: Packets (net_packets.docker0)
+net_errors.docker0: Interface Errors (net_errors.docker0)
+net_drops.docker0: Interface Drops (net_drops.docker0)
+net_fifo.docker0: Interface FIFO Buffer Errors (net_fifo.docker0)
+net_events.docker0: Network Interface Events (net_events.docker0)
+system.net: Physical Network Interfaces Aggregated Bandwidth (system.net)
+app.containerd-shim-runc-v2_vmem_usage: Applications Groups virtual memory size (app.containerd-shim-runc-v2_vmem_usage)
+app.containerd-shim-runc-v2_mem_page_faults: Applications Groups memory page faults (app.containerd-shim-runc-v2_mem_page_faults)
+app.containerd-shim-runc-v2_swap_usage: Applications Groups swap usage (app.containerd-shim-runc-v2_swap_usage)
+app.containerd-shim-runc-v2_disk_physical_io: Applications Groups disk physical IO (app.containerd-shim-runc-v2_disk_physical_io)
+app.containerd-shim-runc-v2_disk_logical_io: Applications Groups disk logical IO (app.containerd-shim-runc-v2_disk_logical_io)
+app.containerd-shim-runc-v2_processes: Applications Groups processes (app.containerd-shim-runc-v2_processes)
+app.containerd-shim-runc-v2_threads: Applications Groups threads (app.containerd-shim-runc-v2_threads)
+app.containerd-shim-runc-v2_fds_open_limit: Applications Groups open file descriptors limit (app.containerd-shim-runc-v2_fds_open_limit)
+app.containerd-shim-runc-v2_fds_open: Applications Groups open files descriptors (app.containerd-shim-runc-v2_fds_open)
+app.containerd-shim-runc-v2_uptime: Applications Groups uptime (app.containerd-shim-runc-v2_uptime)
+app.dockerd_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.dockerd_cpu_utilization)
+app.dockerd_mem_private_usage: Applications Groups memory usage without shared (app.dockerd_mem_private_usage)
+app.dockerd_cpu_context_switches: Applications Groups CPU context switches (app.dockerd_cpu_context_switches)
+app.dockerd_mem_usage: Applications Groups memory RSS usage (app.dockerd_mem_usage)
+app.dockerd_vmem_usage: Applications Groups virtual memory size (app.dockerd_vmem_usage)
+app.dockerd_mem_page_faults: Applications Groups memory page faults (app.dockerd_mem_page_faults)
+app.dockerd_swap_usage: Applications Groups swap usage (app.dockerd_swap_usage)
+app.dockerd_disk_physical_io: Applications Groups disk physical IO (app.dockerd_disk_physical_io)
+app.dockerd_disk_logical_io: Applications Groups disk logical IO (app.dockerd_disk_logical_io)
+app.dockerd_processes: Applications Groups processes (app.dockerd_processes)
+app.dockerd_threads: Applications Groups threads (app.dockerd_threads)
+app.dockerd_fds_open_limit: Applications Groups open file descriptors limit (app.dockerd_fds_open_limit)
+app.dockerd_fds_open: Applications Groups open files descriptors (app.dockerd_fds_open)
+app.dockerd_uptime: Applications Groups uptime (app.dockerd_uptime)
+app.containerd_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.containerd_cpu_utilization)
+app.containerd_mem_private_usage: Applications Groups memory usage without shared (app.containerd_mem_private_usage)
+app.containerd_cpu_context_switches: Applications Groups CPU context switches (app.containerd_cpu_context_switches)
+app.containerd_mem_usage: Applications Groups memory RSS usage (app.containerd_mem_usage)
+app.containerd_vmem_usage: Applications Groups virtual memory size (app.containerd_vmem_usage)
+app.containerd_mem_page_faults: Applications Groups memory page faults (app.containerd_mem_page_faults)
+app.containerd_swap_usage: Applications Groups swap usage (app.containerd_swap_usage)
+app.containerd_disk_physical_io: Applications Groups disk physical IO (app.containerd_disk_physical_io)
+app.containerd_disk_logical_io: Applications Groups disk logical IO (app.containerd_disk_logical_io)
+app.containerd_processes: Applications Groups processes (app.containerd_processes)
+app.containerd_threads: Applications Groups threads (app.containerd_threads)
+app.containerd_fds_open_limit: Applications Groups open file descriptors limit (app.containerd_fds_open_limit)
+app.containerd_fds_open: Applications Groups open files descriptors (app.containerd_fds_open)
+app.containerd_uptime: Applications Groups uptime (app.containerd_uptime)
+app.rosetta-mount_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.rosetta-mount_cpu_utilization)
+app.rosetta-mount_mem_private_usage: Applications Groups memory usage without shared (app.rosetta-mount_mem_private_usage)
+app.rosetta-mount_cpu_context_switches: Applications Groups CPU context switches (app.rosetta-mount_cpu_context_switches)
+app.rosetta-mount_mem_usage: Applications Groups memory RSS usage (app.rosetta-mount_mem_usage)
+app.rosetta-mount_vmem_usage: Applications Groups virtual memory size (app.rosetta-mount_vmem_usage)
+app.rosetta-mount_mem_page_faults: Applications Groups memory page faults (app.rosetta-mount_mem_page_faults)
+app.rosetta-mount_swap_usage: Applications Groups swap usage (app.rosetta-mount_swap_usage)
+app.rosetta-mount_disk_physical_io: Applications Groups disk physical IO (app.rosetta-mount_disk_physical_io)
+app.rosetta-mount_disk_logical_io: Applications Groups disk logical IO (app.rosetta-mount_disk_logical_io)
+app.rosetta-mount_processes: Applications Groups processes (app.rosetta-mount_processes)
+app.rosetta-mount_threads: Applications Groups threads (app.rosetta-mount_threads)
+app.rosetta-mount_fds_open_limit: Applications Groups open file descriptors limit (app.rosetta-mount_fds_open_limit)
+app.rosetta-mount_fds_open: Applications Groups open files descriptors (app.rosetta-mount_fds_open)
+app.rosetta-mount_uptime: Applications Groups uptime (app.rosetta-mount_uptime)
+app.sh_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.sh_cpu_utilization)
+app.sh_mem_private_usage: Applications Groups memory usage without shared (app.sh_mem_private_usage)
+app.sh_cpu_context_switches: Applications Groups CPU context switches (app.sh_cpu_context_switches)
+app.sh_mem_usage: Applications Groups memory RSS usage (app.sh_mem_usage)
+app.sh_vmem_usage: Applications Groups virtual memory size (app.sh_vmem_usage)
+app.sh_mem_page_faults: Applications Groups memory page faults (app.sh_mem_page_faults)
+app.sh_swap_usage: Applications Groups swap usage (app.sh_swap_usage)
+app.sh_disk_physical_io: Applications Groups disk physical IO (app.sh_disk_physical_io)
+app.sh_disk_logical_io: Applications Groups disk logical IO (app.sh_disk_logical_io)
+app.sh_processes: Applications Groups processes (app.sh_processes)
+app.sh_threads: Applications Groups threads (app.sh_threads)
+app.sh_fds_open_limit: Applications Groups open file descriptors limit (app.sh_fds_open_limit)
+app.sh_fds_open: Applications Groups open files descriptors (app.sh_fds_open)
+app.sh_uptime: Applications Groups uptime (app.sh_uptime)
+app.init_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.init_cpu_utilization)
+app.init_mem_private_usage: Applications Groups memory usage without shared (app.init_mem_private_usage)
+app.init_cpu_context_switches: Applications Groups CPU context switches (app.init_cpu_context_switches)
+app.init_mem_usage: Applications Groups memory RSS usage (app.init_mem_usage)
+app.init_vmem_usage: Applications Groups virtual memory size (app.init_vmem_usage)
+app.init_mem_page_faults: Applications Groups memory page faults (app.init_mem_page_faults)
+app.init_swap_usage: Applications Groups swap usage (app.init_swap_usage)
+app.init_disk_physical_io: Applications Groups disk physical IO (app.init_disk_physical_io)
+app.init_disk_logical_io: Applications Groups disk logical IO (app.init_disk_logical_io)
+app.init_processes: Applications Groups processes (app.init_processes)
+app.init_threads: Applications Groups threads (app.init_threads)
+app.init_fds_open_limit: Applications Groups open file descriptors limit (app.init_fds_open_limit)
+app.init_fds_open: Applications Groups open files descriptors (app.init_fds_open)
+app.init_uptime: Applications Groups uptime (app.init_uptime)
+app.netdata_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.netdata_cpu_utilization)
+app.netdata_mem_private_usage: Applications Groups memory usage without shared (app.netdata_mem_private_usage)
+app.netdata_cpu_context_switches: Applications Groups CPU context switches (app.netdata_cpu_context_switches)
+app.netdata_mem_usage: Applications Groups memory RSS usage (app.netdata_mem_usage)
+app.netdata_vmem_usage: Applications Groups virtual memory size (app.netdata_vmem_usage)
+app.netdata_mem_page_faults: Applications Groups memory page faults (app.netdata_mem_page_faults)
+app.netdata_swap_usage: Applications Groups swap usage (app.netdata_swap_usage)
+app.netdata_disk_physical_io: Applications Groups disk physical IO (app.netdata_disk_physical_io)
+app.netdata_disk_logical_io: Applications Groups disk logical IO (app.netdata_disk_logical_io)
+app.netdata_processes: Applications Groups processes (app.netdata_processes)
+app.netdata_threads: Applications Groups threads (app.netdata_threads)
+app.netdata_fds_open_limit: Applications Groups open file descriptors limit (app.netdata_fds_open_limit)
+app.netdata_fds_open: Applications Groups open files descriptors (app.netdata_fds_open)
+app.netdata_uptime: Applications Groups uptime (app.netdata_uptime)
+app.kernel_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.kernel_cpu_utilization)
+app.kernel_mem_private_usage: Applications Groups memory usage without shared (app.kernel_mem_private_usage)
+app.kernel_cpu_context_switches: Applications Groups CPU context switches (app.kernel_cpu_context_switches)
+app.kernel_mem_usage: Applications Groups memory RSS usage (app.kernel_mem_usage)
+app.kernel_vmem_usage: Applications Groups virtual memory size (app.kernel_vmem_usage)
+app.kernel_mem_page_faults: Applications Groups memory page faults (app.kernel_mem_page_faults)
+app.kernel_swap_usage: Applications Groups swap usage (app.kernel_swap_usage)
+app.kernel_disk_physical_io: Applications Groups disk physical IO (app.kernel_disk_physical_io)
+app.kernel_disk_logical_io: Applications Groups disk logical IO (app.kernel_disk_logical_io)
+app.kernel_processes: Applications Groups processes (app.kernel_processes)
+app.kernel_threads: Applications Groups threads (app.kernel_threads)
+app.kernel_fds_open_limit: Applications Groups open file descriptors limit (app.kernel_fds_open_limit)
+app.kernel_fds_open: Applications Groups open files descriptors (app.kernel_fds_open)
+app.kernel_uptime: Applications Groups uptime (app.kernel_uptime)
+app.ksmd_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.ksmd_cpu_utilization)
+app.ksmd_mem_private_usage: Applications Groups memory usage without shared (app.ksmd_mem_private_usage)
+app.ksmd_cpu_context_switches: Applications Groups CPU context switches (app.ksmd_cpu_context_switches)
+app.ksmd_mem_usage: Applications Groups memory RSS usage (app.ksmd_mem_usage)
+app.ksmd_vmem_usage: Applications Groups virtual memory size (app.ksmd_vmem_usage)
+app.ksmd_mem_page_faults: Applications Groups memory page faults (app.ksmd_mem_page_faults)
+app.ksmd_swap_usage: Applications Groups swap usage (app.ksmd_swap_usage)
+app.ksmd_disk_physical_io: Applications Groups disk physical IO (app.ksmd_disk_physical_io)
+app.ksmd_disk_logical_io: Applications Groups disk logical IO (app.ksmd_disk_logical_io)
+app.ksmd_processes: Applications Groups processes (app.ksmd_processes)
+app.ksmd_threads: Applications Groups threads (app.ksmd_threads)
+app.ksmd_fds_open_limit: Applications Groups open file descriptors limit (app.ksmd_fds_open_limit)
+app.ksmd_fds_open: Applications Groups open files descriptors (app.ksmd_fds_open)
+app.ksmd_uptime: Applications Groups uptime (app.ksmd_uptime)
+app.kmigration_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.kmigration_cpu_utilization)
+app.kmigration_mem_private_usage: Applications Groups memory usage without shared (app.kmigration_mem_private_usage)
+app.kmigration_cpu_context_switches: Applications Groups CPU context switches (app.kmigration_cpu_context_switches)
+app.kmigration_mem_usage: Applications Groups memory RSS usage (app.kmigration_mem_usage)
+app.kmigration_vmem_usage: Applications Groups virtual memory size (app.kmigration_vmem_usage)
+app.kmigration_mem_page_faults: Applications Groups memory page faults (app.kmigration_mem_page_faults)
+app.kmigration_swap_usage: Applications Groups swap usage (app.kmigration_swap_usage)
+app.kmigration_disk_physical_io: Applications Groups disk physical IO (app.kmigration_disk_physical_io)
+app.kmigration_disk_logical_io: Applications Groups disk logical IO (app.kmigration_disk_logical_io)
+app.kmigration_processes: Applications Groups processes (app.kmigration_processes)
+app.kmigration_threads: Applications Groups threads (app.kmigration_threads)
+app.kmigration_fds_open_limit: Applications Groups open file descriptors limit (app.kmigration_fds_open_limit)
+app.kmigration_fds_open: Applications Groups open files descriptors (app.kmigration_fds_open)
+app.kmigration_uptime: Applications Groups uptime (app.kmigration_uptime)
+app.kcompactd_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.kcompactd_cpu_utilization)
+app.kcompactd_mem_private_usage: Applications Groups memory usage without shared (app.kcompactd_mem_private_usage)
+app.kcompactd_cpu_context_switches: Applications Groups CPU context switches (app.kcompactd_cpu_context_switches)
+app.kcompactd_mem_usage: Applications Groups memory RSS usage (app.kcompactd_mem_usage)
+app.kcompactd_vmem_usage: Applications Groups virtual memory size (app.kcompactd_vmem_usage)
+app.kcompactd_mem_page_faults: Applications Groups memory page faults (app.kcompactd_mem_page_faults)
+app.kcompactd_swap_usage: Applications Groups swap usage (app.kcompactd_swap_usage)
+app.kcompactd_disk_physical_io: Applications Groups disk physical IO (app.kcompactd_disk_physical_io)
+app.kcompactd_disk_logical_io: Applications Groups disk logical IO (app.kcompactd_disk_logical_io)
+app.kcompactd_processes: Applications Groups processes (app.kcompactd_processes)
+app.kcompactd_threads: Applications Groups threads (app.kcompactd_threads)
+app.kcompactd_fds_open_limit: Applications Groups open file descriptors limit (app.kcompactd_fds_open_limit)
+app.kcompactd_fds_open: Applications Groups open files descriptors (app.kcompactd_fds_open)
+app.kcompactd_uptime: Applications Groups uptime (app.kcompactd_uptime)
+app.kswapd_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.kswapd_cpu_utilization)
+app.kswapd_mem_private_usage: Applications Groups memory usage without shared (app.kswapd_mem_private_usage)
+app.kswapd_cpu_context_switches: Applications Groups CPU context switches (app.kswapd_cpu_context_switches)
+app.kswapd_mem_usage: Applications Groups memory RSS usage (app.kswapd_mem_usage)
+app.kswapd_vmem_usage: Applications Groups virtual memory size (app.kswapd_vmem_usage)
+app.kswapd_mem_page_faults: Applications Groups memory page faults (app.kswapd_mem_page_faults)
+app.kswapd_swap_usage: Applications Groups swap usage (app.kswapd_swap_usage)
+app.kswapd_disk_physical_io: Applications Groups disk physical IO (app.kswapd_disk_physical_io)
+app.kswapd_disk_logical_io: Applications Groups disk logical IO (app.kswapd_disk_logical_io)
+app.kswapd_processes: Applications Groups processes (app.kswapd_processes)
+app.kswapd_threads: Applications Groups threads (app.kswapd_threads)
+app.kswapd_fds_open_limit: Applications Groups open file descriptors limit (app.kswapd_fds_open_limit)
+app.kswapd_fds_open: Applications Groups open files descriptors (app.kswapd_fds_open)
+app.kswapd_uptime: Applications Groups uptime (app.kswapd_uptime)
+app.khugepaged_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.khugepaged_cpu_utilization)
+app.khugepaged_mem_private_usage: Applications Groups memory usage without shared (app.khugepaged_mem_private_usage)
+app.khugepaged_cpu_context_switches: Applications Groups CPU context switches (app.khugepaged_cpu_context_switches)
+app.khugepaged_mem_usage: Applications Groups memory RSS usage (app.khugepaged_mem_usage)
+app.khugepaged_vmem_usage: Applications Groups virtual memory size (app.khugepaged_vmem_usage)
+app.khugepaged_mem_page_faults: Applications Groups memory page faults (app.khugepaged_mem_page_faults)
+app.khugepaged_swap_usage: Applications Groups swap usage (app.khugepaged_swap_usage)
+app.khugepaged_disk_physical_io: Applications Groups disk physical IO (app.khugepaged_disk_physical_io)
+app.khugepaged_disk_logical_io: Applications Groups disk logical IO (app.khugepaged_disk_logical_io)
+app.khugepaged_processes: Applications Groups processes (app.khugepaged_processes)
+app.khugepaged_threads: Applications Groups threads (app.khugepaged_threads)
+app.khugepaged_fds_open_limit: Applications Groups open file descriptors limit (app.khugepaged_fds_open_limit)
+app.khugepaged_fds_open: Applications Groups open files descriptors (app.khugepaged_fds_open)
+app.khugepaged_uptime: Applications Groups uptime (app.khugepaged_uptime)
+app.ext4_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.ext4_cpu_utilization)
+app.ext4_mem_private_usage: Applications Groups memory usage without shared (app.ext4_mem_private_usage)
+app.ext4_cpu_context_switches: Applications Groups CPU context switches (app.ext4_cpu_context_switches)
+app.ext4_mem_usage: Applications Groups memory RSS usage (app.ext4_mem_usage)
+app.ext4_vmem_usage: Applications Groups virtual memory size (app.ext4_vmem_usage)
+app.ext4_mem_page_faults: Applications Groups memory page faults (app.ext4_mem_page_faults)
+app.ext4_swap_usage: Applications Groups swap usage (app.ext4_swap_usage)
+app.ext4_disk_physical_io: Applications Groups disk physical IO (app.ext4_disk_physical_io)
+app.ext4_disk_logical_io: Applications Groups disk logical IO (app.ext4_disk_logical_io)
+app.ext4_processes: Applications Groups processes (app.ext4_processes)
+app.ext4_threads: Applications Groups threads (app.ext4_threads)
+app.ext4_fds_open_limit: Applications Groups open file descriptors limit (app.ext4_fds_open_limit)
+app.ext4_fds_open: Applications Groups open files descriptors (app.ext4_fds_open)
+app.ext4_uptime: Applications Groups uptime (app.ext4_uptime)
+app.nfs_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.nfs_cpu_utilization)
+app.nfs_mem_private_usage: Applications Groups memory usage without shared (app.nfs_mem_private_usage)
+app.nfs_cpu_context_switches: Applications Groups CPU context switches (app.nfs_cpu_context_switches)
+app.nfs_mem_usage: Applications Groups memory RSS usage (app.nfs_mem_usage)
+app.nfs_vmem_usage: Applications Groups virtual memory size (app.nfs_vmem_usage)
+app.nfs_mem_page_faults: Applications Groups memory page faults (app.nfs_mem_page_faults)
+app.nfs_swap_usage: Applications Groups swap usage (app.nfs_swap_usage)
+app.nfs_disk_physical_io: Applications Groups disk physical IO (app.nfs_disk_physical_io)
+app.nfs_disk_logical_io: Applications Groups disk logical IO (app.nfs_disk_logical_io)
+app.nfs_processes: Applications Groups processes (app.nfs_processes)
+app.nfs_threads: Applications Groups threads (app.nfs_threads)
+app.nfs_fds_open_limit: Applications Groups open file descriptors limit (app.nfs_fds_open_limit)
+app.nfs_fds_open: Applications Groups open files descriptors (app.nfs_fds_open)
+app.nfs_uptime: Applications Groups uptime (app.nfs_uptime)
+app.desktop_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.desktop_cpu_utilization)
+app.desktop_mem_private_usage: Applications Groups memory usage without shared (app.desktop_mem_private_usage)
+app.desktop_cpu_context_switches: Applications Groups CPU context switches (app.desktop_cpu_context_switches)
+app.desktop_mem_usage: Applications Groups memory RSS usage (app.desktop_mem_usage)
+app.desktop_vmem_usage: Applications Groups virtual memory size (app.desktop_vmem_usage)
+app.desktop_mem_page_faults: Applications Groups memory page faults (app.desktop_mem_page_faults)
+app.desktop_swap_usage: Applications Groups swap usage (app.desktop_swap_usage)
+app.desktop_disk_physical_io: Applications Groups disk physical IO (app.desktop_disk_physical_io)
+app.desktop_disk_logical_io: Applications Groups disk logical IO (app.desktop_disk_logical_io)
+app.desktop_processes: Applications Groups processes (app.desktop_processes)
+app.desktop_threads: Applications Groups threads (app.desktop_threads)
+app.desktop_fds_open_limit: Applications Groups open file descriptors limit (app.desktop_fds_open_limit)
+app.desktop_fds_open: Applications Groups open files descriptors (app.desktop_fds_open)
+app.desktop_uptime: Applications Groups uptime (app.desktop_uptime)
+user.472_cpu_utilization: User CPU utilization (100% = 1 core) (user.472_cpu_utilization)
+user.472_mem_private_usage: User memory usage without shared (user.472_mem_private_usage)
+user.472_cpu_context_switches: User CPU context switches (user.472_cpu_context_switches)
+user.472_mem_usage: User memory RSS usage (user.472_mem_usage)
+user.472_vmem_usage: User virtual memory size (user.472_vmem_usage)
+user.472_mem_page_faults: User memory page faults (user.472_mem_page_faults)
+user.472_swap_usage: User swap usage (user.472_swap_usage)
+user.472_disk_physical_io: User disk physical IO (user.472_disk_physical_io)
+user.472_disk_logical_io: User disk logical IO (user.472_disk_logical_io)
+user.472_processes: User processes (user.472_processes)
+user.472_threads: User threads (user.472_threads)
+user.472_fds_open_limit: User open file descriptors limit (user.472_fds_open_limit)
+user.472_fds_open: User open files descriptors (user.472_fds_open)
+user.472_uptime: User uptime (user.472_uptime)
+user.nobody_cpu_utilization: User CPU utilization (100% = 1 core) (user.nobody_cpu_utilization)
+user.nobody_mem_private_usage: User memory usage without shared (user.nobody_mem_private_usage)
+user.nobody_cpu_context_switches: User CPU context switches (user.nobody_cpu_context_switches)
+user.nobody_mem_usage: User memory RSS usage (user.nobody_mem_usage)
+user.nobody_vmem_usage: User virtual memory size (user.nobody_vmem_usage)
+user.nobody_mem_page_faults: User memory page faults (user.nobody_mem_page_faults)
+user.nobody_swap_usage: User swap usage (user.nobody_swap_usage)
+user.nobody_disk_physical_io: User disk physical IO (user.nobody_disk_physical_io)
+user.nobody_disk_logical_io: User disk logical IO (user.nobody_disk_logical_io)
+user.nobody_processes: User processes (user.nobody_processes)
+user.nobody_threads: User threads (user.nobody_threads)
+user.nobody_fds_open_limit: User open file descriptors limit (user.nobody_fds_open_limit)
+user.nobody_fds_open: User open files descriptors (user.nobody_fds_open)
+user.nobody_uptime: User uptime (user.nobody_uptime)
+user.msmtp_cpu_utilization: User CPU utilization (100% = 1 core) (user.msmtp_cpu_utilization)
+user.msmtp_mem_private_usage: User memory usage without shared (user.msmtp_mem_private_usage)
+user.msmtp_cpu_context_switches: User CPU context switches (user.msmtp_cpu_context_switches)
+user.msmtp_mem_usage: User memory RSS usage (user.msmtp_mem_usage)
+user.msmtp_vmem_usage: User virtual memory size (user.msmtp_vmem_usage)
+user.msmtp_mem_page_faults: User memory page faults (user.msmtp_mem_page_faults)
+user.msmtp_swap_usage: User swap usage (user.msmtp_swap_usage)
+user.msmtp_disk_physical_io: User disk physical IO (user.msmtp_disk_physical_io)
+user.msmtp_disk_logical_io: User disk logical IO (user.msmtp_disk_logical_io)
+user.msmtp_processes: User processes (user.msmtp_processes)
+user.msmtp_threads: User threads (user.msmtp_threads)
+user.msmtp_fds_open_limit: User open file descriptors limit (user.msmtp_fds_open_limit)
+user.msmtp_fds_open: User open files descriptors (user.msmtp_fds_open)
+user.msmtp_uptime: User uptime (user.msmtp_uptime)
+user.#_cpu_utilization: User CPU utilization (100% = 1 core) (user.#_cpu_utilization)
+user.#_mem_private_usage: User memory usage without shared (user.#_mem_private_usage)
+user.#_cpu_context_switches: User CPU context switches (user.#_cpu_context_switches)
+user.#_mem_usage: User memory RSS usage (user.#_mem_usage)
+user.#_vmem_usage: User virtual memory size (user.#_vmem_usage)
+user.#_mem_page_faults: User memory page faults (user.#_mem_page_faults)
+user.#_swap_usage: User swap usage (user.#_swap_usage)
+user.#_disk_physical_io: User disk physical IO (user.#_disk_physical_io)
+user.#_disk_logical_io: User disk logical IO (user.#_disk_logical_io)
+user.#_processes: User processes (user.#_processes)
+user.#_threads: User threads (user.#_threads)
+user.#_fds_open_limit: User open file descriptors limit (user.#_fds_open_limit)
+user.#_fds_open: User open files descriptors (user.#_fds_open)
+user.#_uptime: User uptime (user.#_uptime)
+usergroup.nogroup_cpu_utilization: User Group CPU utilization (100% = 1 core) (usergroup.nogroup_cpu_utilization)
+usergroup.nogroup_mem_private_usage: User Group memory usage without shared (usergroup.nogroup_mem_private_usage)
+usergroup.nogroup_cpu_context_switches: User Group CPU context switches (usergroup.nogroup_cpu_context_switches)
+usergroup.nogroup_mem_usage: User Group memory RSS usage (usergroup.nogroup_mem_usage)
+usergroup.nogroup_vmem_usage: User Group virtual memory size (usergroup.nogroup_vmem_usage)
+usergroup.nogroup_mem_page_faults: User Group memory page faults (usergroup.nogroup_mem_page_faults)
+usergroup.nogroup_swap_usage: User Group swap usage (usergroup.nogroup_swap_usage)
+usergroup.nogroup_disk_physical_io: User Group disk physical IO (usergroup.nogroup_disk_physical_io)
+usergroup.nogroup_disk_logical_io: User Group disk logical IO (usergroup.nogroup_disk_logical_io)
+usergroup.nogroup_processes: User Group processes (usergroup.nogroup_processes)
+usergroup.nogroup_threads: User Group threads (usergroup.nogroup_threads)
+usergroup.nogroup_fds_open_limit: User Group open file descriptors limit (usergroup.nogroup_fds_open_limit)
+usergroup.nogroup_fds_open: User Group open files descriptors (usergroup.nogroup_fds_open)
+usergroup.nogroup_uptime: User Group uptime (usergroup.nogroup_uptime)
+usergroup.root_cpu_utilization: User Group CPU utilization (100% = 1 core) (usergroup.root_cpu_utilization)
+usergroup.root_mem_private_usage: User Group memory usage without shared (usergroup.root_mem_private_usage)
+usergroup.root_cpu_context_switches: User Group CPU context switches (usergroup.root_cpu_context_switches)
+usergroup.root_mem_usage: User Group memory RSS usage (usergroup.root_mem_usage)
+usergroup.root_vmem_usage: User Group virtual memory size (usergroup.root_vmem_usage)
+usergroup.root_mem_page_faults: User Group memory page faults (usergroup.root_mem_page_faults)
+usergroup.root_swap_usage: User Group swap usage (usergroup.root_swap_usage)
+usergroup.root_disk_physical_io: User Group disk physical IO (usergroup.root_disk_physical_io)
+usergroup.root_disk_logical_io: User Group disk logical IO (usergroup.root_disk_logical_io)
+usergroup.root_processes: User Group processes (usergroup.root_processes)
+usergroup.root_threads: User Group threads (usergroup.root_threads)
+usergroup.root_fds_open_limit: User Group open file descriptors limit (usergroup.root_fds_open_limit)
+usergroup.root_fds_open: User Group open files descriptors (usergroup.root_fds_open)
+usergroup.root_uptime: User Group uptime (usergroup.root_uptime)
+netdata.machine_learning_status_on_007d0e60-4b94-400a-aec0-c98594154892: Machine learning status (netdata.machine_learning_status_on_netdata-server)
+netdata.metric_types_on_007d0e60-4b94-400a-aec0-c98594154892: Dimensions by metric type (netdata.metric_types_on_netdata-server)
+netdata.training_status_on_007d0e60-4b94-400a-aec0-c98594154892: Training status of dimensions (netdata.training_status_on_netdata-server)
+anomaly_detection.dimensions_on_007d0e60-4b94-400a-aec0-c98594154892: Anomaly detection dimensions (anomaly_detection.dimensions_on_netdata-server)
+anomaly_detection.ml_running_on_007d0e60-4b94-400a-aec0-c98594154892: ML running (anomaly_detection.ml_running_on_netdata-server)
+anomaly_detection.anomaly_rate_on_007d0e60-4b94-400a-aec0-c98594154892: Percentage of anomalous dimensions (anomaly_detection.anomaly_rate_on_netdata-server)
+anomaly_detection.context_anomaly_rate_on_007d0e60-4b94-400a-aec0-c98594154892: Percentage of anomalous dimensions by context (anomaly_detection.context_anomaly_rate_on_netdata-server)
+anomaly_detection.anomaly_detection_on_007d0e60-4b94-400a-aec0-c98594154892: Anomaly detection events (anomaly_detection.anomaly_detection_on_netdata-server)
+netdata.training_queue_0_ops: Training queue operations (netdata.training_queue_0_ops)
+netdata.training_queue_0_size: Training queue size (netdata.training_queue_0_size)
+netdata.training_queue_0_time_stats: Training time stats (netdata.training_queue_0_time_stats)
+netdata.training_queue_0_results: Training results (netdata.training_queue_0_results)
+netdata.training_queue_1_ops: Training queue operations (netdata.training_queue_1_ops)
+netdata.training_queue_1_size: Training queue size (netdata.training_queue_1_size)
+netdata.training_queue_1_time_stats: Training time stats (netdata.training_queue_1_time_stats)
+netdata.training_queue_1_results: Training results (netdata.training_queue_1_results)
+netdata.training_queue_2_ops: Training queue operations (netdata.training_queue_2_ops)
+netdata.training_queue_2_size: Training queue size (netdata.training_queue_2_size)
+netdata.training_queue_2_time_stats: Training time stats (netdata.training_queue_2_time_stats)
+netdata.training_queue_2_results: Training results (netdata.training_queue_2_results)
+netdata.training_queue_3_ops: Training queue operations (netdata.training_queue_3_ops)
+netdata.training_queue_3_size: Training queue size (netdata.training_queue_3_size)
+netdata.training_queue_3_time_stats: Training time stats (netdata.training_queue_3_time_stats)
+netdata.training_queue_3_results: Training results (netdata.training_queue_3_results)
+disk_space./: Disk Space Usage (disk_space./)
+disk_inodes./: Disk Files (inodes) Usage (disk_inodes./)
+disk_space./var/lib/netdata: Disk Space Usage (disk_space./var/lib/netdata)
+disk_inodes./var/lib/netdata: Disk Files (inodes) Usage (disk_inodes./var/lib/netdata)
+mem.fragmentation_index_node_0_dma: Memory fragmentation index for each order (mem.fragmentation_index_node_0_dma)
+system.cpu: Total CPU utilization (system.cpu)
+system.intr: CPU Interrupts (system.intr)
+system.ctxt: CPU Context Switches (system.ctxt)
+system.forks: Started Processes (system.forks)
+system.processes: System Processes (system.processes)
+system.uptime: System Uptime (system.uptime)
+system.load: System Load Average (system.load)
+system.active_processes: System Active Processes (system.active_processes)
+system.file_nr_used: File Descriptors (system.file_nr_used)
+system.file_nr_utilization: File Descriptors Utilization (system.file_nr_utilization)
+system.entropy: Available Entropy (system.entropy)
+system.cpu_some_pressure: CPU some pressure (system.cpu_some_pressure)
+system.cpu_some_pressure_stall_time: CPU some pressure stall time (system.cpu_some_pressure_stall_time)
+system.memory_some_pressure: Memory some pressure (system.memory_some_pressure)
+system.memory_some_pressure_stall_time: Memory some pressure stall time (system.memory_some_pressure_stall_time)
+system.memory_full_pressure: Memory full pressure (system.memory_full_pressure)
+system.memory_full_pressure_stall_time: Memory full pressure stall time (system.memory_full_pressure_stall_time)
+system.io_some_pressure: I/O some pressure (system.io_some_pressure)
+system.io_some_pressure_stall_time: I/O some pressure stall time (system.io_some_pressure_stall_time)
+system.io_full_pressure: I/O full pressure (system.io_full_pressure)
+system.io_full_pressure_stall_time: I/O full pressure stall time (system.io_full_pressure_stall_time)
+system.interrupts: System interrupts (system.interrupts)
+system.softirqs: System softirqs (system.softirqs)
+mem.swapio: Swap I/O (mem.swapio)
+system.pgpgio: Memory Paged from/to disk (system.pgpgio)
+mem.pgfaults: Memory Page Faults (mem.pgfaults)
+mem.oom_kill: Out of Memory Kills (mem.oom_kill)
+mem.balloon: Memory Ballooning Operations (mem.balloon)
+mem.thp_faults: Transparent Huge Page Fault Allocations (mem.thp_faults)
+mem.thp_file: Transparent Huge Page File Allocations (mem.thp_file)
+mem.thp_zero: Transparent Huge Zero Page Allocations (mem.thp_zero)
+mem.thp_collapse: Transparent Huge Pages Collapsed by khugepaged (mem.thp_collapse)
+mem.thp_split: Transparent Huge Page Splits (mem.thp_split)
+mem.thp_swapout: Transparent Huge Pages Swap Out (mem.thp_swapout)
+mem.thp_compact: Transparent Huge Pages Compaction (mem.thp_compact)
+system.ram: System RAM (system.ram)
+mem.available: Available RAM for applications (mem.available)
+mem.swap: System Swap (mem.swap)
+mem.swap_cached: Swap Memory Cached in RAM (mem.swap_cached)
+mem.committed: Committed (Allocated) Memory (mem.committed)
+mem.writeback: Writeback Memory (mem.writeback)
+mem.kernel: Memory Used by Kernel (mem.kernel)
+mem.slab: Reclaimable Kernel Memory (mem.slab)
+mem.thp: Transparent HugePages Memory (mem.thp)
+mem.thp_details: Details of Transparent HugePages Usage (mem.thp_details)
+mem.reclaiming: Memory Reclaiming (mem.reclaiming)
+ip.sockstat_sockets: Sockets used for all address families (ip.sockstat_sockets)
+ipv4.sockstat_tcp_sockets: TCP Sockets (ipv4.sockstat_tcp_sockets)
+ipv4.sockstat_tcp_mem: TCP Sockets Memory (ipv4.sockstat_tcp_mem)
+ipv4.sockstat_udp_sockets: IPv4 UDP Sockets (ipv4.sockstat_udp_sockets)
+ipv4.sockstat_udp_mem: IPv4 UDP Sockets Memory (ipv4.sockstat_udp_mem)
+ipv4.sockstat_udplite_sockets: IPv4 UDPLITE Sockets (ipv4.sockstat_udplite_sockets)
+ipv4.sockstat_raw_sockets: IPv4 RAW Sockets (ipv4.sockstat_raw_sockets)
+ipv4.sockstat_frag_sockets: IPv4 FRAG Sockets (ipv4.sockstat_frag_sockets)
+ipv4.sockstat_frag_mem: IPv4 FRAG Sockets Memory (ipv4.sockstat_frag_mem)
+ipv6.sockstat6_tcp_sockets: IPv6 TCP Sockets (ipv6.sockstat6_tcp_sockets)
+ipv6.sockstat6_udp_sockets: IPv6 UDP Sockets (ipv6.sockstat6_udp_sockets)
+ipv6.sockstat6_udplite_sockets: IPv6 UDPLITE Sockets (ipv6.sockstat6_udplite_sockets)
+ipv6.sockstat6_raw_sockets: IPv6 RAW Sockets (ipv6.sockstat6_raw_sockets)
+ipv6.sockstat6_frag_sockets: IPv6 FRAG Sockets (ipv6.sockstat6_frag_sockets)
+system.ip: IPv4 Bandwidth (system.ip)
+ipv4.mcast: IP Multicast Bandwidth (ipv4.mcast)
+ipv4.bcast: IPv4 Broadcast Bandwidth (ipv4.bcast)
+ipv4.mcastpkts: IPv4 Multicast Packets (ipv4.mcastpkts)
+ipv4.bcastpkts: IPv4 Broadcast Packets (ipv4.bcastpkts)
+ipv4.ecnpkts: IPv4 ECN Statistics (ipv4.ecnpkts)
+ip.tcpmemorypressures: TCP Memory Pressures (ip.tcpmemorypressures)
+ip.tcpconnaborts: TCP Connection Aborts (ip.tcpconnaborts)
+ip.tcpreorders: TCP Reordered Packets by Detection Method (ip.tcpreorders)
+ip.tcpofo: TCP Out-Of-Order Queue (ip.tcpofo)
+ip.tcpsyncookies: TCP SYN Cookies (ip.tcpsyncookies)
+ip.tcp_syn_queue: TCP SYN Queue Issues (ip.tcp_syn_queue)
+ip.tcp_accept_queue: TCP Accept Queue Issues (ip.tcp_accept_queue)
+ipv4.packets: IPv4 Packets (ipv4.packets)
+ipv4.fragsout: IPv4 Fragments Sent (ipv4.fragsout)
+ipv4.fragsin: IPv4 Fragments Reassembly (ipv4.fragsin)
+ipv4.errors: IPv4 Errors (ipv4.errors)
+ipv4.icmp: IPv4 ICMP Packets (ipv4.icmp)
+ipv4.icmp_errors: IPv4 ICMP Errors (ipv4.icmp_errors)
+ipv4.icmpmsg: IPv4 ICMP Messages (ipv4.icmpmsg)
+ip.tcpsock: TCP Connections (ip.tcpsock)
+ip.tcppackets: IPv4 TCP Packets (ip.tcppackets)
+ip.tcperrors: IPv4 TCP Errors (ip.tcperrors)
+ip.tcpopens: IPv4 TCP Opens (ip.tcpopens)
+ip.tcphandshake: IPv4 TCP Handshake Issues (ip.tcphandshake)
+ipv4.udppackets: IPv4 UDP Packets (ipv4.udppackets)
+ipv4.udperrors: IPv4 UDP Errors (ipv4.udperrors)
+ipv4.udplite: IPv4 UDPLite Packets (ipv4.udplite)
+ipv4.udplite_errors: IPv4 UDPLite Errors (ipv4.udplite_errors)
+system.ipv6: IPv6 Bandwidth (system.ipv6)
+ipv6.packets: IPv6 Packets (ipv6.packets)
+ipv6.fragsout: IPv6 Fragments Sent (ipv6.fragsout)
+ipv6.fragsin: IPv6 Fragments Reassembly (ipv6.fragsin)
+ipv6.errors: IPv6 Errors (ipv6.errors)
+ipv6.udppackets: IPv6 UDP Packets (ipv6.udppackets)
+ipv6.udperrors: IPv6 UDP Errors (ipv6.udperrors)
+ipv6.udplitepackets: IPv6 UDPlite Packets (ipv6.udplitepackets)
+ipv6.udpliteerrors: IPv6 UDP Lite Errors (ipv6.udpliteerrors)
+ipv6.mcast: IPv6 Multicast Bandwidth (ipv6.mcast)
+ipv6.bcast: IPv6 Broadcast Bandwidth (ipv6.bcast)
+ipv6.mcastpkts: IPv6 Multicast Packets (ipv6.mcastpkts)
+ipv6.icmp: IPv6 ICMP Messages (ipv6.icmp)
+ipv6.icmpredir: IPv6 ICMP Redirects (ipv6.icmpredir)
+ipv6.icmperrors: IPv6 ICMP Errors (ipv6.icmperrors)
+ipv6.icmpechos: IPv6 ICMP Echo (ipv6.icmpechos)
+ipv6.groupmemb: IPv6 ICMP Group Membership (ipv6.groupmemb)
+ipv6.icmprouter: IPv6 Router Messages (ipv6.icmprouter)
+ipv6.icmpneighbor: IPv6 Neighbor Messages (ipv6.icmpneighbor)
+ipv6.icmpmldv2: IPv6 ICMP MLDv2 Reports (ipv6.icmpmldv2)
+ipv6.icmptypes: IPv6 ICMP Types (ipv6.icmptypes)
+ipv6.ect: IPv6 ECT Packets (ipv6.ect)
+sctp.established: SCTP current total number of established associations (sctp.established)
+sctp.transitions: SCTP Association Transitions (sctp.transitions)
+sctp.packets: SCTP Packets (sctp.packets)
+sctp.packet_errors: SCTP Packet Errors (sctp.packet_errors)
+sctp.fragmentation: SCTP Fragmentation (sctp.fragmentation)
+sctp.chunks: SCTP Chunk Types (sctp.chunks)
+system.softnet_stat: System softnet_stat (system.softnet_stat)
+ipvs.sockets: IPVS New Connections (ipvs.sockets)
+ipvs.packets: IPVS Packets (ipvs.packets)
+ipvs.net: IPVS Bandwidth (ipvs.net)
+netfilter.conntrack_sockets: Connection Tracker Connections (netfilter.conntrack_sockets)
+netfilter.conntrack_new: Connection Tracker New Connections (netfilter.conntrack_new)
+netfilter.conntrack_changes: Connection Tracker Changes (netfilter.conntrack_changes)
+netfilter.conntrack_expect: Connection Tracker Expectations (netfilter.conntrack_expect)
+netfilter.conntrack_search: Connection Tracker Searches (netfilter.conntrack_search)
+netfilter.conntrack_errors: Connection Tracker Errors (netfilter.conntrack_errors)
+netfilter.synproxy_syn_received: SYNPROXY SYN Packets received (netfilter.synproxy_syn_received)
+netfilter.synproxy_conn_reopened: SYNPROXY Connections Reopened (netfilter.synproxy_conn_reopened)
+netfilter.synproxy_cookies: SYNPROXY TCP Cookies (netfilter.synproxy_cookies)
+disk.nbd0: Disk I/O Bandwidth (disk.nbd0)
+disk_ext.nbd0: Amount of Discarded Data (disk_ext.nbd0)
+disk_ops.nbd0: Disk Completed I/O Operations (disk_ops.nbd0)
+disk_ext_ops.nbd0: Disk Completed Extended I/O Operations (disk_ext_ops.nbd0)
+disk_qops.nbd0: Disk Current I/O Operations (disk_qops.nbd0)
+disk_backlog.nbd0: Disk Backlog (disk_backlog.nbd0)
+disk_busy.nbd0: Disk Busy Time (disk_busy.nbd0)
+disk_util.nbd0: Disk Utilization Time (disk_util.nbd0)
+disk_mops.nbd0: Disk Merged Operations (disk_mops.nbd0)
+disk_ext_mops.nbd0: Disk Merged Discard Operations (disk_ext_mops.nbd0)
+disk_iotime.nbd0: Disk Total I/O Time (disk_iotime.nbd0)
+disk_ext_iotime.nbd0: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd0)
+disk.nbd1: Disk I/O Bandwidth (disk.nbd1)
+disk_ext.nbd1: Amount of Discarded Data (disk_ext.nbd1)
+disk_ops.nbd1: Disk Completed I/O Operations (disk_ops.nbd1)
+disk_ext_ops.nbd1: Disk Completed Extended I/O Operations (disk_ext_ops.nbd1)
+disk_qops.nbd1: Disk Current I/O Operations (disk_qops.nbd1)
+disk_backlog.nbd1: Disk Backlog (disk_backlog.nbd1)
+disk_busy.nbd1: Disk Busy Time (disk_busy.nbd1)
+disk_util.nbd1: Disk Utilization Time (disk_util.nbd1)
+disk_mops.nbd1: Disk Merged Operations (disk_mops.nbd1)
+disk_ext_mops.nbd1: Disk Merged Discard Operations (disk_ext_mops.nbd1)
+disk_iotime.nbd1: Disk Total I/O Time (disk_iotime.nbd1)
+disk_ext_iotime.nbd1: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd1)
+disk.nbd2: Disk I/O Bandwidth (disk.nbd2)
+disk_ext.nbd2: Amount of Discarded Data (disk_ext.nbd2)
+disk_ops.nbd2: Disk Completed I/O Operations (disk_ops.nbd2)
+disk_ext_ops.nbd2: Disk Completed Extended I/O Operations (disk_ext_ops.nbd2)
+disk_qops.nbd2: Disk Current I/O Operations (disk_qops.nbd2)
+disk_backlog.nbd2: Disk Backlog (disk_backlog.nbd2)
+disk_busy.nbd2: Disk Busy Time (disk_busy.nbd2)
+disk_util.nbd2: Disk Utilization Time (disk_util.nbd2)
+disk_mops.nbd2: Disk Merged Operations (disk_mops.nbd2)
+disk_ext_mops.nbd2: Disk Merged Discard Operations (disk_ext_mops.nbd2)
+disk_iotime.nbd2: Disk Total I/O Time (disk_iotime.nbd2)
+disk_ext_iotime.nbd2: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd2)
+disk.nbd3: Disk I/O Bandwidth (disk.nbd3)
+disk_ext.nbd3: Amount of Discarded Data (disk_ext.nbd3)
+disk_ops.nbd3: Disk Completed I/O Operations (disk_ops.nbd3)
+disk_ext_ops.nbd3: Disk Completed Extended I/O Operations (disk_ext_ops.nbd3)
+disk_qops.nbd3: Disk Current I/O Operations (disk_qops.nbd3)
+disk_backlog.nbd3: Disk Backlog (disk_backlog.nbd3)
+disk_busy.nbd3: Disk Busy Time (disk_busy.nbd3)
+disk_util.nbd3: Disk Utilization Time (disk_util.nbd3)
+disk_mops.nbd3: Disk Merged Operations (disk_mops.nbd3)
+disk_ext_mops.nbd3: Disk Merged Discard Operations (disk_ext_mops.nbd3)
+disk_iotime.nbd3: Disk Total I/O Time (disk_iotime.nbd3)
+disk_ext_iotime.nbd3: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd3)
+disk.nbd4: Disk I/O Bandwidth (disk.nbd4)
+disk_ext.nbd4: Amount of Discarded Data (disk_ext.nbd4)
+disk_ops.nbd4: Disk Completed I/O Operations (disk_ops.nbd4)
+disk_ext_ops.nbd4: Disk Completed Extended I/O Operations (disk_ext_ops.nbd4)
+disk_qops.nbd4: Disk Current I/O Operations (disk_qops.nbd4)
+disk_backlog.nbd4: Disk Backlog (disk_backlog.nbd4)
+disk_busy.nbd4: Disk Busy Time (disk_busy.nbd4)
+disk_util.nbd4: Disk Utilization Time (disk_util.nbd4)
+disk_mops.nbd4: Disk Merged Operations (disk_mops.nbd4)
+disk_ext_mops.nbd4: Disk Merged Discard Operations (disk_ext_mops.nbd4)
+disk_iotime.nbd4: Disk Total I/O Time (disk_iotime.nbd4)
+disk_ext_iotime.nbd4: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd4)
+disk.nbd5: Disk I/O Bandwidth (disk.nbd5)
+disk_ext.nbd5: Amount of Discarded Data (disk_ext.nbd5)
+disk_ops.nbd5: Disk Completed I/O Operations (disk_ops.nbd5)
+disk_ext_ops.nbd5: Disk Completed Extended I/O Operations (disk_ext_ops.nbd5)
+disk_qops.nbd5: Disk Current I/O Operations (disk_qops.nbd5)
+disk_backlog.nbd5: Disk Backlog (disk_backlog.nbd5)
+disk_busy.nbd5: Disk Busy Time (disk_busy.nbd5)
+disk_util.nbd5: Disk Utilization Time (disk_util.nbd5)
+disk_mops.nbd5: Disk Merged Operations (disk_mops.nbd5)
+disk_ext_mops.nbd5: Disk Merged Discard Operations (disk_ext_mops.nbd5)
+disk_iotime.nbd5: Disk Total I/O Time (disk_iotime.nbd5)
+disk_ext_iotime.nbd5: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd5)
+disk.nbd6: Disk I/O Bandwidth (disk.nbd6)
+disk_ext.nbd6: Amount of Discarded Data (disk_ext.nbd6)
+disk_ops.nbd6: Disk Completed I/O Operations (disk_ops.nbd6)
+disk_ext_ops.nbd6: Disk Completed Extended I/O Operations (disk_ext_ops.nbd6)
+disk_qops.nbd6: Disk Current I/O Operations (disk_qops.nbd6)
+disk_backlog.nbd6: Disk Backlog (disk_backlog.nbd6)
+disk_busy.nbd6: Disk Busy Time (disk_busy.nbd6)
+disk_util.nbd6: Disk Utilization Time (disk_util.nbd6)
+disk_mops.nbd6: Disk Merged Operations (disk_mops.nbd6)
+disk_ext_mops.nbd6: Disk Merged Discard Operations (disk_ext_mops.nbd6)
+disk_iotime.nbd6: Disk Total I/O Time (disk_iotime.nbd6)
+disk_ext_iotime.nbd6: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd6)
+disk.nbd7: Disk I/O Bandwidth (disk.nbd7)
+disk_ext.nbd7: Amount of Discarded Data (disk_ext.nbd7)
+disk_ops.nbd7: Disk Completed I/O Operations (disk_ops.nbd7)
+disk_ext_ops.nbd7: Disk Completed Extended I/O Operations (disk_ext_ops.nbd7)
+disk_qops.nbd7: Disk Current I/O Operations (disk_qops.nbd7)
+disk_backlog.nbd7: Disk Backlog (disk_backlog.nbd7)
+disk_busy.nbd7: Disk Busy Time (disk_busy.nbd7)
+disk_util.nbd7: Disk Utilization Time (disk_util.nbd7)
+disk_mops.nbd7: Disk Merged Operations (disk_mops.nbd7)
+disk_ext_mops.nbd7: Disk Merged Discard Operations (disk_ext_mops.nbd7)
+disk_iotime.nbd7: Disk Total I/O Time (disk_iotime.nbd7)
+disk_ext_iotime.nbd7: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd7)
+disk.nbd8: Disk I/O Bandwidth (disk.nbd8)
+disk_ext.nbd8: Amount of Discarded Data (disk_ext.nbd8)
+disk_ops.nbd8: Disk Completed I/O Operations (disk_ops.nbd8)
+disk_ext_ops.nbd8: Disk Completed Extended I/O Operations (disk_ext_ops.nbd8)
+disk_qops.nbd8: Disk Current I/O Operations (disk_qops.nbd8)
+disk_backlog.nbd8: Disk Backlog (disk_backlog.nbd8)
+disk_busy.nbd8: Disk Busy Time (disk_busy.nbd8)
+disk_util.nbd8: Disk Utilization Time (disk_util.nbd8)
+disk_mops.nbd8: Disk Merged Operations (disk_mops.nbd8)
+disk_ext_mops.nbd8: Disk Merged Discard Operations (disk_ext_mops.nbd8)
+disk_iotime.nbd8: Disk Total I/O Time (disk_iotime.nbd8)
+disk_ext_iotime.nbd8: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd8)
+disk.nbd9: Disk I/O Bandwidth (disk.nbd9)
+disk_ext.nbd9: Amount of Discarded Data (disk_ext.nbd9)
+disk_ops.nbd9: Disk Completed I/O Operations (disk_ops.nbd9)
+disk_ext_ops.nbd9: Disk Completed Extended I/O Operations (disk_ext_ops.nbd9)
+disk_qops.nbd9: Disk Current I/O Operations (disk_qops.nbd9)
+disk_backlog.nbd9: Disk Backlog (disk_backlog.nbd9)
+disk_busy.nbd9: Disk Busy Time (disk_busy.nbd9)
+disk_util.nbd9: Disk Utilization Time (disk_util.nbd9)
+disk_mops.nbd9: Disk Merged Operations (disk_mops.nbd9)
+disk_ext_mops.nbd9: Disk Merged Discard Operations (disk_ext_mops.nbd9)
+disk_iotime.nbd9: Disk Total I/O Time (disk_iotime.nbd9)
+disk_ext_iotime.nbd9: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd9)
+disk.nbd10: Disk I/O Bandwidth (disk.nbd10)
+disk_ext.nbd10: Amount of Discarded Data (disk_ext.nbd10)
+disk_ops.nbd10: Disk Completed I/O Operations (disk_ops.nbd10)
+disk_ext_ops.nbd10: Disk Completed Extended I/O Operations (disk_ext_ops.nbd10)
+disk_qops.nbd10: Disk Current I/O Operations (disk_qops.nbd10)
+disk_backlog.nbd10: Disk Backlog (disk_backlog.nbd10)
+disk_busy.nbd10: Disk Busy Time (disk_busy.nbd10)
+disk_util.nbd10: Disk Utilization Time (disk_util.nbd10)
+disk_mops.nbd10: Disk Merged Operations (disk_mops.nbd10)
+disk_ext_mops.nbd10: Disk Merged Discard Operations (disk_ext_mops.nbd10)
+disk_iotime.nbd10: Disk Total I/O Time (disk_iotime.nbd10)
+disk_ext_iotime.nbd10: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd10)
+disk.nbd11: Disk I/O Bandwidth (disk.nbd11)
+disk_ext.nbd11: Amount of Discarded Data (disk_ext.nbd11)
+disk_ops.nbd11: Disk Completed I/O Operations (disk_ops.nbd11)
+disk_ext_ops.nbd11: Disk Completed Extended I/O Operations (disk_ext_ops.nbd11)
+disk_qops.nbd11: Disk Current I/O Operations (disk_qops.nbd11)
+disk_backlog.nbd11: Disk Backlog (disk_backlog.nbd11)
+disk_busy.nbd11: Disk Busy Time (disk_busy.nbd11)
+disk_util.nbd11: Disk Utilization Time (disk_util.nbd11)
+disk_mops.nbd11: Disk Merged Operations (disk_mops.nbd11)
+disk_ext_mops.nbd11: Disk Merged Discard Operations (disk_ext_mops.nbd11)
+disk_iotime.nbd11: Disk Total I/O Time (disk_iotime.nbd11)
+disk_ext_iotime.nbd11: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd11)
+disk.nbd12: Disk I/O Bandwidth (disk.nbd12)
+disk_ext.nbd12: Amount of Discarded Data (disk_ext.nbd12)
+disk_ops.nbd12: Disk Completed I/O Operations (disk_ops.nbd12)
+disk_ext_ops.nbd12: Disk Completed Extended I/O Operations (disk_ext_ops.nbd12)
+disk_qops.nbd12: Disk Current I/O Operations (disk_qops.nbd12)
+disk_backlog.nbd12: Disk Backlog (disk_backlog.nbd12)
+disk_busy.nbd12: Disk Busy Time (disk_busy.nbd12)
+disk_util.nbd12: Disk Utilization Time (disk_util.nbd12)
+disk_mops.nbd12: Disk Merged Operations (disk_mops.nbd12)
+disk_ext_mops.nbd12: Disk Merged Discard Operations (disk_ext_mops.nbd12)
+disk_iotime.nbd12: Disk Total I/O Time (disk_iotime.nbd12)
+disk_ext_iotime.nbd12: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd12)
+disk.nbd13: Disk I/O Bandwidth (disk.nbd13)
+disk_ext.nbd13: Amount of Discarded Data (disk_ext.nbd13)
+disk_ops.nbd13: Disk Completed I/O Operations (disk_ops.nbd13)
+disk_ext_ops.nbd13: Disk Completed Extended I/O Operations (disk_ext_ops.nbd13)
+disk_qops.nbd13: Disk Current I/O Operations (disk_qops.nbd13)
+disk_backlog.nbd13: Disk Backlog (disk_backlog.nbd13)
+disk_busy.nbd13: Disk Busy Time (disk_busy.nbd13)
+disk_util.nbd13: Disk Utilization Time (disk_util.nbd13)
+disk_mops.nbd13: Disk Merged Operations (disk_mops.nbd13)
+disk_ext_mops.nbd13: Disk Merged Discard Operations (disk_ext_mops.nbd13)
+disk_iotime.nbd13: Disk Total I/O Time (disk_iotime.nbd13)
+disk_ext_iotime.nbd13: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd13)
+disk.nbd14: Disk I/O Bandwidth (disk.nbd14)
+disk_ext.nbd14: Amount of Discarded Data (disk_ext.nbd14)
+disk_ops.nbd14: Disk Completed I/O Operations (disk_ops.nbd14)
+disk_ext_ops.nbd14: Disk Completed Extended I/O Operations (disk_ext_ops.nbd14)
+disk_qops.nbd14: Disk Current I/O Operations (disk_qops.nbd14)
+disk_backlog.nbd14: Disk Backlog (disk_backlog.nbd14)
+disk_busy.nbd14: Disk Busy Time (disk_busy.nbd14)
+disk_util.nbd14: Disk Utilization Time (disk_util.nbd14)
+disk_mops.nbd14: Disk Merged Operations (disk_mops.nbd14)
+disk_ext_mops.nbd14: Disk Merged Discard Operations (disk_ext_mops.nbd14)
+disk_iotime.nbd14: Disk Total I/O Time (disk_iotime.nbd14)
+disk_ext_iotime.nbd14: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd14)
+disk.nbd15: Disk I/O Bandwidth (disk.nbd15)
+disk_ext.nbd15: Amount of Discarded Data (disk_ext.nbd15)
+disk_ops.nbd15: Disk Completed I/O Operations (disk_ops.nbd15)
+disk_ext_ops.nbd15: Disk Completed Extended I/O Operations (disk_ext_ops.nbd15)
+disk_qops.nbd15: Disk Current I/O Operations (disk_qops.nbd15)
+disk_backlog.nbd15: Disk Backlog (disk_backlog.nbd15)
+disk_busy.nbd15: Disk Busy Time (disk_busy.nbd15)
+disk_util.nbd15: Disk Utilization Time (disk_util.nbd15)
+disk_mops.nbd15: Disk Merged Operations (disk_mops.nbd15)
+disk_ext_mops.nbd15: Disk Merged Discard Operations (disk_ext_mops.nbd15)
+disk_iotime.nbd15: Disk Total I/O Time (disk_iotime.nbd15)
+disk_ext_iotime.nbd15: Disk Total I/O Time for Extended Operations (disk_ext_iotime.nbd15)
+disk.vda: Disk I/O Bandwidth (disk.vda)
+disk_ext.vda: Amount of Discarded Data (disk_ext.vda)
+disk_ops.vda: Disk Completed I/O Operations (disk_ops.vda)
+disk_ext_ops.vda: Disk Completed Extended I/O Operations (disk_ext_ops.vda)
+disk_qops.vda: Disk Current I/O Operations (disk_qops.vda)
+disk_backlog.vda: Disk Backlog (disk_backlog.vda)
+disk_busy.vda: Disk Busy Time (disk_busy.vda)
+disk_util.vda: Disk Utilization Time (disk_util.vda)
+disk_mops.vda: Disk Merged Operations (disk_mops.vda)
+disk_ext_mops.vda: Disk Merged Discard Operations (disk_ext_mops.vda)
+disk_iotime.vda: Disk Total I/O Time (disk_iotime.vda)
+disk_ext_iotime.vda: Disk Total I/O Time for Extended Operations (disk_ext_iotime.vda)
+disk.vdb: Disk I/O Bandwidth (disk.vdb)
+disk_ext.vdb: Amount of Discarded Data (disk_ext.vdb)
+disk_ops.vdb: Disk Completed I/O Operations (disk_ops.vdb)
+disk_ext_ops.vdb: Disk Completed Extended I/O Operations (disk_ext_ops.vdb)
+disk_qops.vdb: Disk Current I/O Operations (disk_qops.vdb)
+disk_backlog.vdb: Disk Backlog (disk_backlog.vdb)
+disk_busy.vdb: Disk Busy Time (disk_busy.vdb)
+disk_util.vdb: Disk Utilization Time (disk_util.vdb)
+disk_mops.vdb: Disk Merged Operations (disk_mops.vdb)
+disk_ext_mops.vdb: Disk Merged Discard Operations (disk_ext_mops.vdb)
+disk_iotime.vdb: Disk Total I/O Time (disk_iotime.vdb)
+disk_ext_iotime.vdb: Disk Total I/O Time for Extended Operations (disk_ext_iotime.vdb)
+system.io: Disk I/O (system.io)
+nfsd.threads: NFS Server Threads (nfsd.threads)
+system.ipc_semaphore_arrays: IPC Semaphore Arrays (system.ipc_semaphore_arrays)
+system.ipc_semaphores: IPC Semaphores (system.ipc_semaphores)
+system.shared_memory_segments: IPC Shared Memory Number of Segments (system.shared_memory_segments)
+system.shared_memory_bytes: IPC Shared Memory Used Bytes (system.shared_memory_bytes)
+docker_local.containers_state: Total number of Docker containers in various states (docker_local.containers_state)
+docker_local.healthy_containers: Total number of Docker containers in various health states (docker_local.healthy_containers)
+docker_local.images_count: Total number of Docker images in various states (docker_local.images_count)
+docker_local.images_size: Total size of all Docker images (docker_local.images_size)
+docker_local.container_netdata-monitoring_state: Docker container state (docker_local.container_netdata-monitoring_state)
+docker_local.container_netdata-monitoring_health_status: Docker container health status (docker_local.container_netdata-monitoring_health_status)
+docker_local.container_grafana_state: Docker container state (docker_local.container_grafana_state)
+docker_local.container_grafana_health_status: Docker container health status (docker_local.container_grafana_health_status)
+docker_local.container_prometheus_state: Docker container state (docker_local.container_prometheus_state)
+docker_local.container_prometheus_health_status: Docker container health status (docker_local.container_prometheus_health_status)
+docker_local.container_minikube_state: Docker container state (docker_local.container_minikube_state)
+docker_local.container_minikube_health_status: Docker container health status (docker_local.container_minikube_health_status)
+netdata.go_d_docker_local_data_collection_status: Data Collection Status (netdata.go_d_docker_local_data_collection_status)
+netdata.go_d_docker_local_data_collection_duration: Data Collection Duration (netdata.go_d_docker_local_data_collection_duration)
+disk_await.nbd0: Average Completed I/O Operation Time (disk_await.nbd0)
+disk_ext_await.nbd0: Average Completed Extended I/O Operation Time (disk_ext_await.nbd0)
+disk_avgsz.nbd0: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd0)
+disk_ext_avgsz.nbd0: Average Amount of Discarded Data (disk_ext_avgsz.nbd0)
+disk_svctm.nbd0: Average Service Time (disk_svctm.nbd0)
+disk_await.nbd1: Average Completed I/O Operation Time (disk_await.nbd1)
+disk_ext_await.nbd1: Average Completed Extended I/O Operation Time (disk_ext_await.nbd1)
+disk_avgsz.nbd1: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd1)
+disk_ext_avgsz.nbd1: Average Amount of Discarded Data (disk_ext_avgsz.nbd1)
+disk_svctm.nbd1: Average Service Time (disk_svctm.nbd1)
+disk_await.nbd2: Average Completed I/O Operation Time (disk_await.nbd2)
+disk_ext_await.nbd2: Average Completed Extended I/O Operation Time (disk_ext_await.nbd2)
+disk_avgsz.nbd2: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd2)
+disk_ext_avgsz.nbd2: Average Amount of Discarded Data (disk_ext_avgsz.nbd2)
+disk_svctm.nbd2: Average Service Time (disk_svctm.nbd2)
+disk_await.nbd3: Average Completed I/O Operation Time (disk_await.nbd3)
+disk_ext_await.nbd3: Average Completed Extended I/O Operation Time (disk_ext_await.nbd3)
+disk_avgsz.nbd3: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd3)
+disk_ext_avgsz.nbd3: Average Amount of Discarded Data (disk_ext_avgsz.nbd3)
+disk_svctm.nbd3: Average Service Time (disk_svctm.nbd3)
+disk_await.nbd4: Average Completed I/O Operation Time (disk_await.nbd4)
+disk_ext_await.nbd4: Average Completed Extended I/O Operation Time (disk_ext_await.nbd4)
+disk_avgsz.nbd4: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd4)
+disk_ext_avgsz.nbd4: Average Amount of Discarded Data (disk_ext_avgsz.nbd4)
+disk_svctm.nbd4: Average Service Time (disk_svctm.nbd4)
+disk_await.nbd5: Average Completed I/O Operation Time (disk_await.nbd5)
+disk_ext_await.nbd5: Average Completed Extended I/O Operation Time (disk_ext_await.nbd5)
+disk_avgsz.nbd5: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd5)
+disk_ext_avgsz.nbd5: Average Amount of Discarded Data (disk_ext_avgsz.nbd5)
+disk_svctm.nbd5: Average Service Time (disk_svctm.nbd5)
+disk_await.nbd6: Average Completed I/O Operation Time (disk_await.nbd6)
+disk_ext_await.nbd6: Average Completed Extended I/O Operation Time (disk_ext_await.nbd6)
+disk_avgsz.nbd6: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd6)
+disk_ext_avgsz.nbd6: Average Amount of Discarded Data (disk_ext_avgsz.nbd6)
+disk_svctm.nbd6: Average Service Time (disk_svctm.nbd6)
+disk_await.nbd7: Average Completed I/O Operation Time (disk_await.nbd7)
+disk_ext_await.nbd7: Average Completed Extended I/O Operation Time (disk_ext_await.nbd7)
+disk_avgsz.nbd7: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd7)
+disk_ext_avgsz.nbd7: Average Amount of Discarded Data (disk_ext_avgsz.nbd7)
+disk_svctm.nbd7: Average Service Time (disk_svctm.nbd7)
+disk_await.nbd8: Average Completed I/O Operation Time (disk_await.nbd8)
+disk_ext_await.nbd8: Average Completed Extended I/O Operation Time (disk_ext_await.nbd8)
+disk_avgsz.nbd8: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd8)
+disk_ext_avgsz.nbd8: Average Amount of Discarded Data (disk_ext_avgsz.nbd8)
+disk_svctm.nbd8: Average Service Time (disk_svctm.nbd8)
+disk_await.nbd9: Average Completed I/O Operation Time (disk_await.nbd9)
+disk_ext_await.nbd9: Average Completed Extended I/O Operation Time (disk_ext_await.nbd9)
+disk_avgsz.nbd9: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd9)
+disk_ext_avgsz.nbd9: Average Amount of Discarded Data (disk_ext_avgsz.nbd9)
+disk_svctm.nbd9: Average Service Time (disk_svctm.nbd9)
+disk_await.nbd10: Average Completed I/O Operation Time (disk_await.nbd10)
+disk_ext_await.nbd10: Average Completed Extended I/O Operation Time (disk_ext_await.nbd10)
+disk_avgsz.nbd10: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd10)
+disk_ext_avgsz.nbd10: Average Amount of Discarded Data (disk_ext_avgsz.nbd10)
+disk_svctm.nbd10: Average Service Time (disk_svctm.nbd10)
+disk_await.nbd11: Average Completed I/O Operation Time (disk_await.nbd11)
+disk_ext_await.nbd11: Average Completed Extended I/O Operation Time (disk_ext_await.nbd11)
+disk_avgsz.nbd11: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd11)
+disk_ext_avgsz.nbd11: Average Amount of Discarded Data (disk_ext_avgsz.nbd11)
+disk_svctm.nbd11: Average Service Time (disk_svctm.nbd11)
+disk_await.nbd12: Average Completed I/O Operation Time (disk_await.nbd12)
+disk_ext_await.nbd12: Average Completed Extended I/O Operation Time (disk_ext_await.nbd12)
+disk_avgsz.nbd12: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd12)
+disk_ext_avgsz.nbd12: Average Amount of Discarded Data (disk_ext_avgsz.nbd12)
+disk_svctm.nbd12: Average Service Time (disk_svctm.nbd12)
+disk_await.nbd13: Average Completed I/O Operation Time (disk_await.nbd13)
+disk_ext_await.nbd13: Average Completed Extended I/O Operation Time (disk_ext_await.nbd13)
+disk_avgsz.nbd13: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd13)
+disk_ext_avgsz.nbd13: Average Amount of Discarded Data (disk_ext_avgsz.nbd13)
+disk_svctm.nbd13: Average Service Time (disk_svctm.nbd13)
+disk_await.nbd14: Average Completed I/O Operation Time (disk_await.nbd14)
+disk_ext_await.nbd14: Average Completed Extended I/O Operation Time (disk_ext_await.nbd14)
+disk_avgsz.nbd14: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd14)
+disk_ext_avgsz.nbd14: Average Amount of Discarded Data (disk_ext_avgsz.nbd14)
+disk_svctm.nbd14: Average Service Time (disk_svctm.nbd14)
+disk_await.nbd15: Average Completed I/O Operation Time (disk_await.nbd15)
+disk_ext_await.nbd15: Average Completed Extended I/O Operation Time (disk_ext_await.nbd15)
+disk_avgsz.nbd15: Average Completed I/O Operation Bandwidth (disk_avgsz.nbd15)
+disk_ext_avgsz.nbd15: Average Amount of Discarded Data (disk_ext_avgsz.nbd15)
+disk_svctm.nbd15: Average Service Time (disk_svctm.nbd15)
+disk_await.vda: Average Completed I/O Operation Time (disk_await.vda)
+disk_ext_await.vda: Average Completed Extended I/O Operation Time (disk_ext_await.vda)
+disk_avgsz.vda: Average Completed I/O Operation Bandwidth (disk_avgsz.vda)
+disk_ext_avgsz.vda: Average Amount of Discarded Data (disk_ext_avgsz.vda)
+disk_svctm.vda: Average Service Time (disk_svctm.vda)
+disk_await.vdb: Average Completed I/O Operation Time (disk_await.vdb)
+disk_ext_await.vdb: Average Completed Extended I/O Operation Time (disk_ext_await.vdb)
+disk_avgsz.vdb: Average Completed I/O Operation Bandwidth (disk_avgsz.vdb)
+disk_ext_avgsz.vdb: Average Amount of Discarded Data (disk_ext_avgsz.vdb)
+disk_svctm.vdb: Average Service Time (disk_svctm.vdb)
+netdata.network_api: Netdata Network Traffic (netdata.network_api)
+system.clock_sync_state: System Clock Synchronization State (system.clock_sync_state)
+system.clock_status: System Clock Status (system.clock_status)
+system.clock_sync_offset: Computed Time Offset Between Local System and Reference Clock (system.clock_sync_offset)
+cgroup_netdata-monitoring.cpu: CPU Usage (100%% = 1 core) (cgroup_netdata-monitoring.cpu)
+cgroup_netdata-monitoring.throttled: CPU Throttled Runnable Periods (cgroup_netdata-monitoring.throttled)
+cgroup_netdata-monitoring.throttled_duration: CPU Throttled Time Duration (cgroup_netdata-monitoring.throttled_duration)
+cgroup_netdata-monitoring.mem: Memory Usage (cgroup_netdata-monitoring.mem)
+cgroup_netdata-monitoring.writeback: Writeback Memory (cgroup_netdata-monitoring.writeback)
+cgroup_netdata-monitoring.pgfaults: Memory Page Faults (cgroup_netdata-monitoring.pgfaults)
+cgroup_netdata-monitoring.mem_usage: Used Memory (cgroup_netdata-monitoring.mem_usage)
+cgroup_netdata-monitoring.mem_usage_limit: Used RAM within the limits (cgroup_netdata-monitoring.mem_usage_limit)
+cgroup_netdata-monitoring.mem_utilization: Memory Utilization (cgroup_netdata-monitoring.mem_utilization)
+cgroup_netdata-monitoring.io: I/O Bandwidth (all disks) (cgroup_netdata-monitoring.io)
+cgroup_netdata-monitoring.serviced_ops: Serviced I/O Operations (all disks) (cgroup_netdata-monitoring.serviced_ops)
+cgroup_netdata-monitoring.pids_current: Number of processes (cgroup_netdata-monitoring.pids_current)
+cgroup_netdata-monitoring.cpu_some_pressure: CPU some pressure (cgroup_netdata-monitoring.cpu_some_pressure)
+cgroup_netdata-monitoring.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_netdata-monitoring.cpu_some_pressure_stall_time)
+cgroup_netdata-monitoring.cpu_full_pressure: CPU full pressure (cgroup_netdata-monitoring.cpu_full_pressure)
+cgroup_netdata-monitoring.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_netdata-monitoring.cpu_full_pressure_stall_time)
+cgroup_netdata-monitoring.mem_some_pressure: Memory some pressure (cgroup_netdata-monitoring.mem_some_pressure)
+cgroup_netdata-monitoring.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_netdata-monitoring.memory_some_pressure_stall_time)
+cgroup_netdata-monitoring.mem_full_pressure: Memory full pressure (cgroup_netdata-monitoring.mem_full_pressure)
+cgroup_netdata-monitoring.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_netdata-monitoring.memory_full_pressure_stall_time)
+cgroup_netdata-monitoring.io_some_pressure: I/O some pressure (cgroup_netdata-monitoring.io_some_pressure)
+cgroup_netdata-monitoring.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_netdata-monitoring.io_some_pressure_stall_time)
+cgroup_netdata-monitoring.io_full_pressure: I/O full pressure (cgroup_netdata-monitoring.io_full_pressure)
+cgroup_netdata-monitoring.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_netdata-monitoring.io_full_pressure_stall_time)
+cgroup_grafana.cpu: CPU Usage (100%% = 1 core) (cgroup_grafana.cpu)
+cgroup_grafana.throttled: CPU Throttled Runnable Periods (cgroup_grafana.throttled)
+cgroup_grafana.throttled_duration: CPU Throttled Time Duration (cgroup_grafana.throttled_duration)
+cgroup_grafana.mem: Memory Usage (cgroup_grafana.mem)
+cgroup_grafana.writeback: Writeback Memory (cgroup_grafana.writeback)
+cgroup_grafana.pgfaults: Memory Page Faults (cgroup_grafana.pgfaults)
+cgroup_grafana.mem_usage: Used Memory (cgroup_grafana.mem_usage)
+cgroup_grafana.mem_usage_limit: Used RAM within the limits (cgroup_grafana.mem_usage_limit)
+cgroup_grafana.mem_utilization: Memory Utilization (cgroup_grafana.mem_utilization)
+cgroup_grafana.io: I/O Bandwidth (all disks) (cgroup_grafana.io)
+cgroup_grafana.serviced_ops: Serviced I/O Operations (all disks) (cgroup_grafana.serviced_ops)
+cgroup_grafana.pids_current: Number of processes (cgroup_grafana.pids_current)
+cgroup_grafana.cpu_some_pressure: CPU some pressure (cgroup_grafana.cpu_some_pressure)
+cgroup_grafana.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_grafana.cpu_some_pressure_stall_time)
+cgroup_grafana.cpu_full_pressure: CPU full pressure (cgroup_grafana.cpu_full_pressure)
+cgroup_grafana.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_grafana.cpu_full_pressure_stall_time)
+cgroup_grafana.mem_some_pressure: Memory some pressure (cgroup_grafana.mem_some_pressure)
+cgroup_grafana.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_grafana.memory_some_pressure_stall_time)
+cgroup_grafana.mem_full_pressure: Memory full pressure (cgroup_grafana.mem_full_pressure)
+cgroup_grafana.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_grafana.memory_full_pressure_stall_time)
+cgroup_grafana.io_some_pressure: I/O some pressure (cgroup_grafana.io_some_pressure)
+cgroup_grafana.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_grafana.io_some_pressure_stall_time)
+cgroup_grafana.io_full_pressure: I/O full pressure (cgroup_grafana.io_full_pressure)
+cgroup_grafana.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_grafana.io_full_pressure_stall_time)
+cgroup_docker_buildx.cpu: CPU Usage (100%% = 1 core) (cgroup_docker_buildx.cpu)
+cgroup_docker_buildx.throttled: CPU Throttled Runnable Periods (cgroup_docker_buildx.throttled)
+cgroup_docker_buildx.throttled_duration: CPU Throttled Time Duration (cgroup_docker_buildx.throttled_duration)
+cgroup_docker_buildx.mem: Memory Usage (cgroup_docker_buildx.mem)
+cgroup_docker_buildx.writeback: Writeback Memory (cgroup_docker_buildx.writeback)
+cgroup_docker_buildx.pgfaults: Memory Page Faults (cgroup_docker_buildx.pgfaults)
+cgroup_docker_buildx.mem_usage: Used Memory (cgroup_docker_buildx.mem_usage)
+cgroup_docker_buildx.mem_usage_limit: Used RAM within the limits (cgroup_docker_buildx.mem_usage_limit)
+cgroup_docker_buildx.mem_utilization: Memory Utilization (cgroup_docker_buildx.mem_utilization)
+cgroup_docker_buildx.io: I/O Bandwidth (all disks) (cgroup_docker_buildx.io)
+cgroup_docker_buildx.serviced_ops: Serviced I/O Operations (all disks) (cgroup_docker_buildx.serviced_ops)
+cgroup_docker_buildx.pids_current: Number of processes (cgroup_docker_buildx.pids_current)
+cgroup_docker_buildx.cpu_some_pressure: CPU some pressure (cgroup_docker_buildx.cpu_some_pressure)
+cgroup_docker_buildx.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_docker_buildx.cpu_some_pressure_stall_time)
+cgroup_docker_buildx.cpu_full_pressure: CPU full pressure (cgroup_docker_buildx.cpu_full_pressure)
+cgroup_docker_buildx.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_docker_buildx.cpu_full_pressure_stall_time)
+cgroup_docker_buildx.mem_some_pressure: Memory some pressure (cgroup_docker_buildx.mem_some_pressure)
+cgroup_docker_buildx.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_docker_buildx.memory_some_pressure_stall_time)
+cgroup_docker_buildx.mem_full_pressure: Memory full pressure (cgroup_docker_buildx.mem_full_pressure)
+cgroup_docker_buildx.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_docker_buildx.memory_full_pressure_stall_time)
+cgroup_docker_buildx.io_some_pressure: I/O some pressure (cgroup_docker_buildx.io_some_pressure)
+cgroup_docker_buildx.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_docker_buildx.io_some_pressure_stall_time)
+cgroup_docker_buildx.io_full_pressure: I/O full pressure (cgroup_docker_buildx.io_full_pressure)
+cgroup_docker_buildx.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_docker_buildx.io_full_pressure_stall_time)
+cgroup_prometheus.cpu: CPU Usage (100%% = 1 core) (cgroup_prometheus.cpu)
+cgroup_prometheus.throttled: CPU Throttled Runnable Periods (cgroup_prometheus.throttled)
+cgroup_prometheus.throttled_duration: CPU Throttled Time Duration (cgroup_prometheus.throttled_duration)
+cgroup_prometheus.mem: Memory Usage (cgroup_prometheus.mem)
+cgroup_prometheus.writeback: Writeback Memory (cgroup_prometheus.writeback)
+cgroup_prometheus.pgfaults: Memory Page Faults (cgroup_prometheus.pgfaults)
+cgroup_prometheus.mem_usage: Used Memory (cgroup_prometheus.mem_usage)
+cgroup_prometheus.mem_usage_limit: Used RAM within the limits (cgroup_prometheus.mem_usage_limit)
+cgroup_prometheus.mem_utilization: Memory Utilization (cgroup_prometheus.mem_utilization)
+cgroup_prometheus.io: I/O Bandwidth (all disks) (cgroup_prometheus.io)
+cgroup_prometheus.serviced_ops: Serviced I/O Operations (all disks) (cgroup_prometheus.serviced_ops)
+cgroup_prometheus.pids_current: Number of processes (cgroup_prometheus.pids_current)
+cgroup_prometheus.cpu_some_pressure: CPU some pressure (cgroup_prometheus.cpu_some_pressure)
+cgroup_prometheus.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_prometheus.cpu_some_pressure_stall_time)
+cgroup_prometheus.cpu_full_pressure: CPU full pressure (cgroup_prometheus.cpu_full_pressure)
+cgroup_prometheus.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_prometheus.cpu_full_pressure_stall_time)
+cgroup_prometheus.mem_some_pressure: Memory some pressure (cgroup_prometheus.mem_some_pressure)
+cgroup_prometheus.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_prometheus.memory_some_pressure_stall_time)
+cgroup_prometheus.mem_full_pressure: Memory full pressure (cgroup_prometheus.mem_full_pressure)
+cgroup_prometheus.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_prometheus.memory_full_pressure_stall_time)
+cgroup_prometheus.io_some_pressure: I/O some pressure (cgroup_prometheus.io_some_pressure)
+cgroup_prometheus.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_prometheus.io_some_pressure_stall_time)
+cgroup_prometheus.io_full_pressure: I/O full pressure (cgroup_prometheus.io_full_pressure)
+cgroup_prometheus.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_prometheus.io_full_pressure_stall_time)
+cgroup_podruntime.cpu: CPU Usage (100%% = 1 core) (cgroup_podruntime.cpu)
+cgroup_podruntime.throttled: CPU Throttled Runnable Periods (cgroup_podruntime.throttled)
+cgroup_podruntime.throttled_duration: CPU Throttled Time Duration (cgroup_podruntime.throttled_duration)
+cgroup_podruntime.mem: Memory Usage (cgroup_podruntime.mem)
+cgroup_podruntime.writeback: Writeback Memory (cgroup_podruntime.writeback)
+cgroup_podruntime.pgfaults: Memory Page Faults (cgroup_podruntime.pgfaults)
+cgroup_podruntime.mem_usage: Used Memory (cgroup_podruntime.mem_usage)
+cgroup_podruntime.mem_usage_limit: Used RAM within the limits (cgroup_podruntime.mem_usage_limit)
+cgroup_podruntime.mem_utilization: Memory Utilization (cgroup_podruntime.mem_utilization)
+cgroup_podruntime.io: I/O Bandwidth (all disks) (cgroup_podruntime.io)
+cgroup_podruntime.serviced_ops: Serviced I/O Operations (all disks) (cgroup_podruntime.serviced_ops)
+cgroup_podruntime.pids_current: Number of processes (cgroup_podruntime.pids_current)
+cgroup_podruntime.cpu_some_pressure: CPU some pressure (cgroup_podruntime.cpu_some_pressure)
+cgroup_podruntime.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_podruntime.cpu_some_pressure_stall_time)
+cgroup_podruntime.cpu_full_pressure: CPU full pressure (cgroup_podruntime.cpu_full_pressure)
+cgroup_podruntime.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_podruntime.cpu_full_pressure_stall_time)
+cgroup_podruntime.mem_some_pressure: Memory some pressure (cgroup_podruntime.mem_some_pressure)
+cgroup_podruntime.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_podruntime.memory_some_pressure_stall_time)
+cgroup_podruntime.mem_full_pressure: Memory full pressure (cgroup_podruntime.mem_full_pressure)
+cgroup_podruntime.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_podruntime.memory_full_pressure_stall_time)
+cgroup_podruntime.io_some_pressure: I/O some pressure (cgroup_podruntime.io_some_pressure)
+cgroup_podruntime.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_podruntime.io_some_pressure_stall_time)
+cgroup_podruntime.io_full_pressure: I/O full pressure (cgroup_podruntime.io_full_pressure)
+cgroup_podruntime.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_podruntime.io_full_pressure_stall_time)
+cgroup_restricted.cpu: CPU Usage (100%% = 1 core) (cgroup_restricted.cpu)
+cgroup_restricted.throttled: CPU Throttled Runnable Periods (cgroup_restricted.throttled)
+cgroup_restricted.throttled_duration: CPU Throttled Time Duration (cgroup_restricted.throttled_duration)
+cgroup_restricted.mem: Memory Usage (cgroup_restricted.mem)
+cgroup_restricted.writeback: Writeback Memory (cgroup_restricted.writeback)
+cgroup_restricted.pgfaults: Memory Page Faults (cgroup_restricted.pgfaults)
+cgroup_restricted.mem_usage: Used Memory (cgroup_restricted.mem_usage)
+cgroup_restricted.mem_usage_limit: Used RAM within the limits (cgroup_restricted.mem_usage_limit)
+cgroup_restricted.mem_utilization: Memory Utilization (cgroup_restricted.mem_utilization)
+cgroup_restricted.io: I/O Bandwidth (all disks) (cgroup_restricted.io)
+cgroup_restricted.serviced_ops: Serviced I/O Operations (all disks) (cgroup_restricted.serviced_ops)
+cgroup_restricted.pids_current: Number of processes (cgroup_restricted.pids_current)
+cgroup_restricted.cpu_some_pressure: CPU some pressure (cgroup_restricted.cpu_some_pressure)
+cgroup_restricted.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_restricted.cpu_some_pressure_stall_time)
+cgroup_restricted.cpu_full_pressure: CPU full pressure (cgroup_restricted.cpu_full_pressure)
+cgroup_restricted.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_restricted.cpu_full_pressure_stall_time)
+cgroup_restricted.mem_some_pressure: Memory some pressure (cgroup_restricted.mem_some_pressure)
+cgroup_restricted.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_restricted.memory_some_pressure_stall_time)
+cgroup_restricted.mem_full_pressure: Memory full pressure (cgroup_restricted.mem_full_pressure)
+cgroup_restricted.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_restricted.memory_full_pressure_stall_time)
+cgroup_restricted.io_some_pressure: I/O some pressure (cgroup_restricted.io_some_pressure)
+cgroup_restricted.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_restricted.io_some_pressure_stall_time)
+cgroup_restricted.io_full_pressure: I/O full pressure (cgroup_restricted.io_full_pressure)
+cgroup_restricted.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_restricted.io_full_pressure_stall_time)
+cgroup_procd-paused.cpu: CPU Usage (100%% = 1 core) (cgroup_procd-paused.cpu)
+cgroup_procd-paused.throttled: CPU Throttled Runnable Periods (cgroup_procd-paused.throttled)
+cgroup_procd-paused.throttled_duration: CPU Throttled Time Duration (cgroup_procd-paused.throttled_duration)
+cgroup_procd-paused.mem: Memory Usage (cgroup_procd-paused.mem)
+cgroup_procd-paused.writeback: Writeback Memory (cgroup_procd-paused.writeback)
+cgroup_procd-paused.pgfaults: Memory Page Faults (cgroup_procd-paused.pgfaults)
+cgroup_procd-paused.mem_usage: Used Memory (cgroup_procd-paused.mem_usage)
+cgroup_procd-paused.mem_usage_limit: Used RAM within the limits (cgroup_procd-paused.mem_usage_limit)
+cgroup_procd-paused.mem_utilization: Memory Utilization (cgroup_procd-paused.mem_utilization)
+cgroup_procd-paused.io: I/O Bandwidth (all disks) (cgroup_procd-paused.io)
+cgroup_procd-paused.serviced_ops: Serviced I/O Operations (all disks) (cgroup_procd-paused.serviced_ops)
+cgroup_procd-paused.pids_current: Number of processes (cgroup_procd-paused.pids_current)
+cgroup_procd-paused.cpu_some_pressure: CPU some pressure (cgroup_procd-paused.cpu_some_pressure)
+cgroup_procd-paused.cpu_some_pressure_stall_time: CPU some pressure stall time (cgroup_procd-paused.cpu_some_pressure_stall_time)
+cgroup_procd-paused.cpu_full_pressure: CPU full pressure (cgroup_procd-paused.cpu_full_pressure)
+cgroup_procd-paused.cpu_full_pressure_stall_time: CPU full pressure stall time (cgroup_procd-paused.cpu_full_pressure_stall_time)
+cgroup_procd-paused.mem_some_pressure: Memory some pressure (cgroup_procd-paused.mem_some_pressure)
+cgroup_procd-paused.memory_some_pressure_stall_time: Memory some pressure stall time (cgroup_procd-paused.memory_some_pressure_stall_time)
+cgroup_procd-paused.mem_full_pressure: Memory full pressure (cgroup_procd-paused.mem_full_pressure)
+cgroup_procd-paused.memory_full_pressure_stall_time: Memory full pressure stall time (cgroup_procd-paused.memory_full_pressure_stall_time)
+cgroup_procd-paused.io_some_pressure: I/O some pressure (cgroup_procd-paused.io_some_pressure)
+cgroup_procd-paused.io_some_pressure_stall_time: I/O some pressure stall time (cgroup_procd-paused.io_some_pressure_stall_time)
+cgroup_procd-paused.io_full_pressure: I/O full pressure (cgroup_procd-paused.io_full_pressure)
+cgroup_procd-paused.io_full_pressure_stall_time: I/O full pressure stall time (cgroup_procd-paused.io_full_pressure_stall_time)
+cgroup_netdata-monitoring.cpu_limit: CPU Usage within the limits (cgroup_netdata-monitoring.cpu_limit)
+cgroup_grafana.cpu_limit: CPU Usage within the limits (cgroup_grafana.cpu_limit)
+cgroup_docker_buildx.cpu_limit: CPU Usage within the limits (cgroup_docker_buildx.cpu_limit)
+cgroup_prometheus.cpu_limit: CPU Usage within the limits (cgroup_prometheus.cpu_limit)
+cgroup_podruntime.cpu_limit: CPU Usage within the limits (cgroup_podruntime.cpu_limit)
+cgroup_restricted.cpu_limit: CPU Usage within the limits (cgroup_restricted.cpu_limit)
+cgroup_procd-paused.cpu_limit: CPU Usage within the limits (cgroup_procd-paused.cpu_limit)
+net.dummy0: Bandwidth (net.dummy0)
+net_operstate.dummy0: Interface Operational State (net_operstate.dummy0)
+net_mtu.dummy0: Interface MTU (net_mtu.dummy0)
+net_packets.dummy0: Packets (net_packets.dummy0)
+net_errors.dummy0: Interface Errors (net_errors.dummy0)
+net_drops.dummy0: Interface Drops (net_drops.dummy0)
+net_fifo.dummy0: Interface FIFO Buffer Errors (net_fifo.dummy0)
+net_events.dummy0: Network Interface Events (net_events.dummy0)
+net.teql0: Bandwidth (net.teql0)
+net_operstate.teql0: Interface Operational State (net_operstate.teql0)
+net_mtu.teql0: Interface MTU (net_mtu.teql0)
+net_packets.teql0: Packets (net_packets.teql0)
+net_errors.teql0: Interface Errors (net_errors.teql0)
+net_drops.teql0: Interface Drops (net_drops.teql0)
+net_fifo.teql0: Interface FIFO Buffer Errors (net_fifo.teql0)
+net_events.teql0: Network Interface Events (net_events.teql0)
+net.erspan0: Bandwidth (net.erspan0)
+net_operstate.erspan0: Interface Operational State (net_operstate.erspan0)
+net_mtu.erspan0: Interface MTU (net_mtu.erspan0)
+net_packets.erspan0: Packets (net_packets.erspan0)
+net_errors.erspan0: Interface Errors (net_errors.erspan0)
+net_drops.erspan0: Interface Drops (net_drops.erspan0)
+net_fifo.erspan0: Interface FIFO Buffer Errors (net_fifo.erspan0)
+net_events.erspan0: Network Interface Events (net_events.erspan0)
+net.ip_vti0: Bandwidth (net.ip_vti0)
+net_operstate.ip_vti0: Interface Operational State (net_operstate.ip_vti0)
+net_mtu.ip_vti0: Interface MTU (net_mtu.ip_vti0)
+net_packets.ip_vti0: Packets (net_packets.ip_vti0)
+net_errors.ip_vti0: Interface Errors (net_errors.ip_vti0)
+net_drops.ip_vti0: Interface Drops (net_drops.ip_vti0)
+net_fifo.ip_vti0: Interface FIFO Buffer Errors (net_fifo.ip_vti0)
+net_events.ip_vti0: Network Interface Events (net_events.ip_vti0)
+net.ip6_vti0: Bandwidth (net.ip6_vti0)
+net_operstate.ip6_vti0: Interface Operational State (net_operstate.ip6_vti0)
+net_mtu.ip6_vti0: Interface MTU (net_mtu.ip6_vti0)
+net_packets.ip6_vti0: Packets (net_packets.ip6_vti0)
+net_errors.ip6_vti0: Interface Errors (net_errors.ip6_vti0)
+net_drops.ip6_vti0: Interface Drops (net_drops.ip6_vti0)
+net_fifo.ip6_vti0: Interface FIFO Buffer Errors (net_fifo.ip6_vti0)
+net_events.ip6_vti0: Network Interface Events (net_events.ip6_vti0)
+net.sit0: Bandwidth (net.sit0)
+net_operstate.sit0: Interface Operational State (net_operstate.sit0)
+net_mtu.sit0: Interface MTU (net_mtu.sit0)
+net_packets.sit0: Packets (net_packets.sit0)
+net_errors.sit0: Interface Errors (net_errors.sit0)
+net_drops.sit0: Interface Drops (net_drops.sit0)
+net_fifo.sit0: Interface FIFO Buffer Errors (net_fifo.sit0)
+net_events.sit0: Network Interface Events (net_events.sit0)
+net.ip6tnl0: Bandwidth (net.ip6tnl0)
+net_operstate.ip6tnl0: Interface Operational State (net_operstate.ip6tnl0)
+net_mtu.ip6tnl0: Interface MTU (net_mtu.ip6tnl0)
+net_packets.ip6tnl0: Packets (net_packets.ip6tnl0)
+net_errors.ip6tnl0: Interface Errors (net_errors.ip6tnl0)
+net_drops.ip6tnl0: Interface Drops (net_drops.ip6tnl0)
+net_fifo.ip6tnl0: Interface FIFO Buffer Errors (net_fifo.ip6tnl0)
+net_events.ip6tnl0: Network Interface Events (net_events.ip6tnl0)
+net.ip6gre0: Bandwidth (net.ip6gre0)
+net_operstate.ip6gre0: Interface Operational State (net_operstate.ip6gre0)
+net_mtu.ip6gre0: Interface MTU (net_mtu.ip6gre0)
+net_packets.ip6gre0: Packets (net_packets.ip6gre0)
+net_errors.ip6gre0: Interface Errors (net_errors.ip6gre0)
+net_drops.ip6gre0: Interface Drops (net_drops.ip6gre0)
+net_fifo.ip6gre0: Interface FIFO Buffer Errors (net_fifo.ip6gre0)
+net_events.ip6gre0: Network Interface Events (net_events.ip6gre0)
+net.services1: Bandwidth (net.services1)
+net_operstate.services1: Interface Operational State (net_operstate.services1)
+net_carrier.services1: Interface Physical Link State (net_carrier.services1)
+net_mtu.services1: Interface MTU (net_mtu.services1)
+net_packets.services1: Packets (net_packets.services1)
+net_errors.services1: Interface Errors (net_errors.services1)
+net_drops.services1: Interface Drops (net_drops.services1)
+net_fifo.services1: Interface FIFO Buffer Errors (net_fifo.services1)
+net_events.services1: Network Interface Events (net_events.services1)
+net.br-d12385f4fa6a: Bandwidth (net.br-d12385f4fa6a)
+net_operstate.br-d12385f4fa6a: Interface Operational State (net_operstate.br-d12385f4fa6a)
+net_carrier.br-d12385f4fa6a: Interface Physical Link State (net_carrier.br-d12385f4fa6a)
+net_mtu.br-d12385f4fa6a: Interface MTU (net_mtu.br-d12385f4fa6a)
+net_packets.br-d12385f4fa6a: Packets (net_packets.br-d12385f4fa6a)
+net_errors.br-d12385f4fa6a: Interface Errors (net_errors.br-d12385f4fa6a)
+net_drops.br-d12385f4fa6a: Interface Drops (net_drops.br-d12385f4fa6a)
+net_fifo.br-d12385f4fa6a: Interface FIFO Buffer Errors (net_fifo.br-d12385f4fa6a)
+net_events.br-d12385f4fa6a: Network Interface Events (net_events.br-d12385f4fa6a)
+net.br-3048fa67c143: Bandwidth (net.br-3048fa67c143)
+net_operstate.br-3048fa67c143: Interface Operational State (net_operstate.br-3048fa67c143)
+net_carrier.br-3048fa67c143: Interface Physical Link State (net_carrier.br-3048fa67c143)
+net_mtu.br-3048fa67c143: Interface MTU (net_mtu.br-3048fa67c143)
+net_packets.br-3048fa67c143: Packets (net_packets.br-3048fa67c143)
+net_errors.br-3048fa67c143: Interface Errors (net_errors.br-3048fa67c143)
+net_drops.br-3048fa67c143: Interface Drops (net_drops.br-3048fa67c143)
+net_fifo.br-3048fa67c143: Interface FIFO Buffer Errors (net_fifo.br-3048fa67c143)
+net_events.br-3048fa67c143: Network Interface Events (net_events.br-3048fa67c143)
+net.veth7b92587: Bandwidth (net.veth7b92587)
+net_operstate.veth7b92587: Interface Operational State (net_operstate.veth7b92587)
+net_carrier.veth7b92587: Interface Physical Link State (net_carrier.veth7b92587)
+net_mtu.veth7b92587: Interface MTU (net_mtu.veth7b92587)
+net_packets.veth7b92587: Packets (net_packets.veth7b92587)
+net_errors.veth7b92587: Interface Errors (net_errors.veth7b92587)
+net_drops.veth7b92587: Interface Drops (net_drops.veth7b92587)
+net_fifo.veth7b92587: Interface FIFO Buffer Errors (net_fifo.veth7b92587)
+net_events.veth7b92587: Network Interface Events (net_events.veth7b92587)
+net.vethc207588: Bandwidth (net.vethc207588)
+net_operstate.vethc207588: Interface Operational State (net_operstate.vethc207588)
+net_carrier.vethc207588: Interface Physical Link State (net_carrier.vethc207588)
+net_mtu.vethc207588: Interface MTU (net_mtu.vethc207588)
+net_packets.vethc207588: Packets (net_packets.vethc207588)
+net_errors.vethc207588: Interface Errors (net_errors.vethc207588)
+net_drops.vethc207588: Interface Drops (net_drops.vethc207588)
+net_fifo.vethc207588: Interface FIFO Buffer Errors (net_fifo.vethc207588)
+net_events.vethc207588: Network Interface Events (net_events.vethc207588)
+app.curl_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.curl_cpu_utilization)
+app.curl_mem_private_usage: Applications Groups memory usage without shared (app.curl_mem_private_usage)
+app.curl_cpu_context_switches: Applications Groups CPU context switches (app.curl_cpu_context_switches)
+app.curl_mem_usage: Applications Groups memory RSS usage (app.curl_mem_usage)
+app.curl_vmem_usage: Applications Groups virtual memory size (app.curl_vmem_usage)
+app.curl_mem_page_faults: Applications Groups memory page faults (app.curl_mem_page_faults)
+app.curl_swap_usage: Applications Groups swap usage (app.curl_swap_usage)
+app.curl_disk_physical_io: Applications Groups disk physical IO (app.curl_disk_physical_io)
+app.curl_disk_logical_io: Applications Groups disk logical IO (app.curl_disk_logical_io)
+app.curl_processes: Applications Groups processes (app.curl_processes)
+app.curl_threads: Applications Groups threads (app.curl_threads)
+app.curl_fds_open_limit: Applications Groups open file descriptors limit (app.curl_fds_open_limit)
+app.curl_fds_open: Applications Groups open files descriptors (app.curl_fds_open)
+app.curl_uptime: Applications Groups uptime (app.curl_uptime)
+net.veth20826dc: Bandwidth (net.veth20826dc)
+net_operstate.veth20826dc: Interface Operational State (net_operstate.veth20826dc)
+net_carrier.veth20826dc: Interface Physical Link State (net_carrier.veth20826dc)
+net_mtu.veth20826dc: Interface MTU (net_mtu.veth20826dc)
+net_packets.veth20826dc: Packets (net_packets.veth20826dc)
+net_errors.veth20826dc: Interface Errors (net_errors.veth20826dc)
+net_drops.veth20826dc: Interface Drops (net_drops.veth20826dc)
+net_fifo.veth20826dc: Interface FIFO Buffer Errors (net_fifo.veth20826dc)
+net_events.veth20826dc: Network Interface Events (net_events.veth20826dc)
+app.runc_cpu_utilization: Applications Groups CPU utilization (100% = 1 core) (app.runc_cpu_utilization)
+app.runc_mem_private_usage: Applications Groups memory usage without shared (app.runc_mem_private_usage)
+app.runc_cpu_context_switches: Applications Groups CPU context switches (app.runc_cpu_context_switches)
+app.runc_mem_usage: Applications Groups memory RSS usage (app.runc_mem_usage)
+app.runc_vmem_usage: Applications Groups virtual memory size (app.runc_vmem_usage)
+app.runc_mem_page_faults: Applications Groups memory page faults (app.runc_mem_page_faults)
+app.runc_swap_usage: Applications Groups swap usage (app.runc_swap_usage)
+app.runc_disk_physical_io: Applications Groups disk physical IO (app.runc_disk_physical_io)
+app.runc_disk_logical_io: Applications Groups disk logical IO (app.runc_disk_logical_io)
+app.runc_processes: Applications Groups processes (app.runc_processes)
+app.runc_threads: Applications Groups threads (app.runc_threads)
+app.runc_fds_open_limit: Applications Groups open file descriptors limit (app.runc_fds_open_limit)
+app.runc_fds_open: Applications Groups open files descriptors (app.runc_fds_open)
+app.runc_uptime: Applications Groups uptime (app.runc_uptime)

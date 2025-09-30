@@ -84,6 +84,8 @@ setup_grafana_provisioning() {
     mkdir -p grafana/provisioning/dashboards
     
     # Datasource configuration
+    # IMPORTANT: Use 'prometheus:9090' not 'localhost:9090' for Docker networking
+    # Containers communicate using service names, not localhost
     cat > grafana/provisioning/datasources/prometheus.yml << 'EOF'
 apiVersion: 1
 
@@ -91,9 +93,13 @@ datasources:
   - name: Prometheus
     type: prometheus
     access: proxy
-    url: http://prometheus:9090
+    url: http://prometheus:9090  # Docker service name, not localhost
     isDefault: true
     editable: true
+    jsonData:
+      timeInterval: "5s"
+      queryTimeout: "60s"
+      httpMethod: "POST"
 EOF
 
     # Dashboard configuration

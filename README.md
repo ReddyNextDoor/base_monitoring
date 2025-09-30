@@ -4,6 +4,21 @@ A comprehensive, production-ready monitoring solution built on Netdata with exte
 
 ## 🚀 Quick Start
 
+### Fastest Way (Docker - 30 seconds)
+```bash
+# Start Netdata immediately with Docker
+docker run -d --name netdata -p 19999:19999 \
+  -v /proc:/host/proc:ro \
+  -v /sys:/host/sys:ro \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  --cap-add SYS_PTRACE \
+  --security-opt apparmor=unconfined \
+  netdata/netdata:latest
+
+# Then open: http://localhost:19999
+```
+
+### Complete Setup (Production)
 ```bash
 # Complete setup with one command
 make all
@@ -75,14 +90,14 @@ make all
 ### Testing Commands
 
 ```bash
-# Basic dashboard tests
-make test
+# 🍎 macOS/Docker Users (Recommended)
+./simple-test.sh 60        # Clean, simple test
+./test_dashboard.sh 60     # Enhanced test (some warnings expected)
 
-# Comprehensive test suite
-make test-full
-
-# Stress testing (10 minutes)
-make test-stress DURATION=600
+# 🐧 Linux Native Install Users  
+make test                  # Basic dashboard tests
+make test-full            # Comprehensive test suite
+make test-stress DURATION=600  # Stress testing (10 minutes)
 ```
 
 ### Management Commands
@@ -202,6 +217,22 @@ make test-full
 open /tmp/netdata-e2e-tests/comprehensive_test_report.html
 ```
 
+## 📚 Documentation & Guides
+
+- **📖 README.md** - Complete setup and usage guide (this file)
+- **🚀 enhancements.md** - Detailed enhancement documentation
+- **📊 prometheusguide.md** - Complete Prometheus query guide with 200+ examples
+- **🎨 grafanaguide.md** - Comprehensive Grafana dashboard creation guide
+- **📋 requirements.md** - Original basic requirements
+
+## 🧪 Testing & Utility Scripts
+
+- **⚡ simple-test.sh** - Quick dashboard test (macOS-friendly)
+- **🎨 test-grafana.sh** - Grafana setup test and demo
+- **🔧 fix-grafana-datasource.sh** - Fix Docker networking issues
+- **💪 test_dashboard.sh** - Enhanced load testing
+- **🔍 test-suite.sh** - Comprehensive end-to-end testing
+
 ## 📁 Project Structure
 
 ```
@@ -213,6 +244,11 @@ open /tmp/netdata-e2e-tests/comprehensive_test_report.html
 ├── docker-setup.sh         # Docker deployment
 ├── docker-compose.yml      # Container orchestration
 ├── prometheus.yml          # Prometheus configuration
+├── prometheusguide.md      # Prometheus query guide
+├── grafanaguide.md        # Grafana dashboard guide
+├── simple-test.sh         # Simple testing script
+├── test-grafana.sh        # Grafana testing script
+├── fix-grafana-datasource.sh # Fix Grafana Docker networking
 ├── Makefile               # Build and deployment system
 ├── requirements.md        # Original requirements
 ├── enhancements.md       # Detailed enhancement documentation
@@ -263,6 +299,42 @@ make status  # Check system resources
 2. View logs: `make logs`
 3. Run diagnostics: `make test-full`
 4. Validate configuration: `make validate`
+
+### What You Should See
+When you first access http://localhost:19999, you'll see:
+- **System Information**: Kernel version, OS, hardware specs
+- **Storage Tiers**: Data retention settings (1s, 1m, 1h resolution)
+- **Real-time Charts**: CPU, Memory, Disk, Network metrics
+- **Navigation Menu**: Left sidebar with different metric categories
+
+The data you're seeing (Tier/Resolution/Storage info) is normal - it shows Netdata's data retention configuration.
+
+### macOS Notes
+- Some test scripts show warnings about missing Linux commands (`free`, `nproc`, etc.) - this is normal
+- The `simple-test.sh` script is designed specifically for macOS compatibility
+- Docker-based Netdata works perfectly on macOS despite these warnings
+
+### Common Issues & Quick Fixes
+
+#### Grafana Shows Red Exclamation Marks
+**Problem:** Dashboard panels show "dial tcp :9090: connection refused"
+**Quick Fix:** Run `./fix-grafana-datasource.sh` or manually change Prometheus URL to `http://prometheus:9090` in Grafana data sources.
+
+#### Containers Not Starting
+**Quick Fix:** 
+```bash
+docker-compose down
+docker-compose up -d
+```
+
+#### Can't Access Dashboards
+**Check Status:**
+```bash
+docker-compose ps  # All should show "Up"
+curl http://localhost:19999  # Netdata
+curl http://localhost:9090   # Prometheus  
+curl http://localhost:3000   # Grafana
+```
 
 ## 📈 Performance
 

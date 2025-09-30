@@ -247,6 +247,16 @@ This document outlines the comprehensive enhancements made to the basic Netdata 
 - **Monitoring as Code**: Programmatic monitoring setup
 - **GitOps workflows**: Git-based operations
 
+### 23. Docker Networking & Troubleshooting
+
+**Enhancement**: Robust Docker container networking and issue resolution
+**Features**:
+- **Automatic Grafana provisioning**: Pre-configured data sources
+- **Docker service discovery**: Containers communicate by service name
+- **Network troubleshooting tools**: Automated fix scripts
+- **Container health monitoring**: Health checks and restart policies
+- **Issue resolution automation**: `fix-grafana-datasource.sh` script
+
 ## 🎯 Business Value
 
 ### 23. Cost Optimization

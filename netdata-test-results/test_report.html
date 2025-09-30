@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netdata Load Test Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .metrics { background-color: #f9f9f9; }
+        pre { background-color: #f5f5f5; padding: 10px; overflow-x: auto; }
+        .success { color: green; }
+        .warning { color: orange; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Netdata Load Test Report</h1>
+        <p><strong>Test Date:</strong> Tue Sep 30 12:36:05 CDT 2025</p>
+        <p><strong>Test Duration:</strong> 60 seconds</p>
+        <p><strong>System:</strong> Darwin ARG-M1-Mac-Air.local 25.0.0 Darwin Kernel Version 25.0.0: Mon Aug 25 21:17:45 PDT 2025; root:xnu-12377.1.9~3/RELEASE_ARM64_T8103 arm64</p>
+    </div>
+    
+    <div class="section">
+        <h2>Test Summary</h2>
+        <ul>
+            <li class="success">✓ CPU Stress Test Completed</li>
+            <li class="success">✓ Memory Stress Test Completed</li>
+            <li class="success">✓ Disk I/O Stress Test Completed</li>
+            <li class="success">✓ Network Stress Test Completed</li>
+            <li class="success">✓ Netdata Metrics Collected</li>
+        </ul>
+    </div>
+    
+    <div class="section metrics">
+        <h2>System State Before Test</h2>
+        <pre>=== Initial System State ===
+Date: Tue Sep 30 12:34:05 CDT 2025
+Uptime: 12:34  up 14 days, 19:24, 1 user, load averages: 2.85 3.29 3.58
+Memory: Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                4264.
+Pages active:                             84124.
+Pages inactive:                           81474.
+Pages speculative:                         2306.
+Disk: Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   228Gi    12Gi   5.7Gi    68%    447k   60M    1%   /
+devfs            208Ki   208Ki     0Bi   100%     718     0  100%   /dev
+/dev/disk3s6     228Gi    12Gi   5.7Gi    68%      12   60M    0%   /System/Volumes/VM
+/dev/disk3s2     228Gi    14Gi   5.7Gi    72%    1.8k   60M    0%   /System/Volumes/Preboot
+/dev/disk3s4     228Gi   739Mi   5.7Gi    12%     463   60M    0%   /System/Volumes/Update
+/dev/disk2s2     500Mi   6.0Mi   481Mi     2%       1  4.9M    0%   /System/Volumes/xarts
+/dev/disk2s1     500Mi   5.8Mi   481Mi     2%      34  4.9M    0%   /System/Volumes/iSCPreboot
+/dev/disk2s3     500Mi   2.7Mi   481Mi     1%      57  4.9M    0%   /System/Volumes/Hardware
+/dev/disk3s5     228Gi   181Gi   5.7Gi    97%    2.7M   60M    4%   /System/Volumes/Data
+map auto_home      0Bi     0Bi     0Bi   100%       0     0     -   /System/Volumes/Data/home
+/dev/disk1s1     5.0Gi   2.0Gi   3.0Gi    40%      59   32M    0%   /System/Volumes/Update/SFR/mnt1
+/dev/disk3s1     228Gi    12Gi   5.7Gi    68%    447k   60M    1%   /System/Volumes/Update/mnt1
+CPU Info: Apple M1
+Load Average:  2.85 3.29 3.58</pre>
+    </div>
+    
+    <div class="section">
+        <h2>Access Netdata Dashboard</h2>
+        <p>View real-time metrics at: <a href="http://localhost:19999" target="_blank">http://localhost:19999</a></p>
+        <p>Test results saved in: <code>./netdata-test-results</code></p>
+    </div>
+    
+    <div class="section">
+        <h2>Next Steps</h2>
+        <ol>
+            <li>Open the Netdata dashboard in your browser</li>
+            <li>Review the metrics collected during the stress tests</li>
+            <li>Check if any alerts were triggered</li>
+            <li>Examine the detailed test results in the results directory</li>
+        </ol>
+    </div>
+</body>
+</html>

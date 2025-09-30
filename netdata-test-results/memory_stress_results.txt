@@ -1,0 +1,9 @@
+Allocating memory up to 100MB...
+Allocated: 100MB
+Total allocated: 100MB
+Holding memory for 60 seconds...
+Releasing memory...
+Memory stress test completed
+ry: 
+Time: 40s - Memory: 
+Time: 50s - Memory: 

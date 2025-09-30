@@ -8,8 +8,8 @@ set -euo pipefail
 # Configuration
 DURATION=${1:-300}  # Default 5 minutes
 NETDATA_URL="http://localhost:19999"
-LOG_FILE="/var/log/netdata-test.log"
-RESULTS_DIR="/tmp/netdata-test-results"
+LOG_FILE="./netdata-test.log"
+RESULTS_DIR="./netdata-test-results"
 
 # Colors for output
 RED='\033[0;31m'
@@ -40,15 +40,27 @@ setup_test_environment() {
     mkdir -p "$RESULTS_DIR"
     log "Created test results directory: $RESULTS_DIR"
     
-    # Record initial system state
+    # Record initial system state (macOS compatible)
     {
         echo "=== Initial System State ==="
         echo "Date: $(date)"
         echo "Uptime: $(uptime)"
-        echo "Memory: $(free -h)"
+        if command -v free &> /dev/null; then
+            echo "Memory: $(free -h)"
+        else
+            echo "Memory: $(vm_stat | head -5)"
+        fi
         echo "Disk: $(df -h)"
-        echo "CPU Info: $(lscpu | grep 'Model name')"
-        echo "Load Average: $(cat /proc/loadavg)"
+        if command -v lscpu &> /dev/null; then
+            echo "CPU Info: $(lscpu | grep 'Model name')"
+        else
+            echo "CPU Info: $(sysctl -n machdep.cpu.brand_string 2>/dev/null || echo 'CPU info not available')"
+        fi
+        if [[ -f /proc/loadavg ]]; then
+            echo "Load Average: $(cat /proc/loadavg)"
+        else
+            echo "Load Average: $(uptime | awk -F'load averages:' '{print $2}' || echo 'Load info not available')"
+        fi
         echo ""
     } > "$RESULTS_DIR/initial_state.txt"
 }
@@ -57,8 +69,15 @@ setup_test_environment() {
 check_netdata() {
     log "Checking Netdata status..."
     
-    if ! systemctl is-active --quiet netdata; then
-        error "Netdata service is not running. Please run setup.sh first."
+    # Check if running in Docker or as native service
+    if docker ps | grep -q netdata; then
+        log "Netdata Docker container is running"
+    elif command -v systemctl &> /dev/null && systemctl is-active --quiet netdata; then
+        log "Netdata native service is running"
+    else
+        error "Netdata is not running. Please start it with:"
+        error "Docker: docker run -d --name netdata -p 19999:19999 netdata/netdata:latest"
+        error "Or run: make install"
         exit 1
     fi
     
@@ -77,11 +96,12 @@ cpu_stress_test() {
     # Get number of CPU cores
     CORES=$(nproc)
     
-    # Start CPU stress processes
+    # Start CPU stress processes (simplified for macOS compatibility)
     for ((i=1; i<=CORES; i++)); do
         (
             while true; do
-                echo "scale=5000; 4*a(1)" | bc -l > /dev/null 2>&1
+                # Simple CPU intensive operation that works on macOS
+                dd if=/dev/zero of=/dev/null bs=1M count=1 2>/dev/null
             done
         ) &
         CPU_PIDS+=($!)
@@ -117,8 +137,13 @@ cpu_stress_test() {
 memory_stress_test() {
     log "Starting memory stress test..."
     
-    # Get available memory in MB
-    AVAILABLE_MEM=$(free -m | awk 'NR==2{printf "%.0f", $7*0.8}')
+    # Get available memory in MB (macOS compatible)
+    if command -v free &> /dev/null; then
+        AVAILABLE_MEM=$(free -m | awk 'NR==2{printf "%.0f", $7*0.8}')
+    else
+        # macOS fallback - allocate a conservative amount
+        AVAILABLE_MEM=100
+    fi
     
     log "Allocating ${AVAILABLE_MEM}MB of memory..."
     
@@ -374,7 +399,7 @@ cleanup_test() {
     log "Cleaning up test processes..."
     
     # Kill any remaining test processes
-    pkill -f "bc -l" 2>/dev/null || true
+    pkill -f "dd if=/dev/zero" 2>/dev/null || true
     pkill -f "python3.*memory" 2>/dev/null || true
     pkill -f "dd.*netdata" 2>/dev/null || true
     
